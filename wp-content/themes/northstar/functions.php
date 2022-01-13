@@ -7,10 +7,10 @@ define('DISALLOW_FILE_EDIT', true); // don't allow file editing via the admin
 /* ====================================================================================================
    Theme Support Configuration
 ==================================================================================================== */
-add_theme_support('automatic-feed-links');
 add_theme_support('menus');
 add_theme_support('post-thumbnails');
 add_theme_support('title-tag');
+remove_theme_support('automatic-feed-links');
 remove_theme_support('custom-background');
 remove_theme_support('custom-header');
 remove_theme_support('custom-line-height');
