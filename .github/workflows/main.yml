@@ -19,3 +19,6 @@ jobs:
       # Branches & Environments
         PRD_BRANCH: main
         PRD_ENV: nssmap
+
+        STG_BRANCH: develop
+        STG_ENV: nssmapstage
