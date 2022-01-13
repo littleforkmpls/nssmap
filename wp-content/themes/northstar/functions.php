@@ -19,8 +19,35 @@ remove_theme_support('customize-selective-refresh-widgets');
 remove_theme_support('html5');
 remove_theme_support('post-formats');
 remove_theme_support('starter-content');
+
+/* ====================================================================================================
+   Cleanup Head Stuff
+==================================================================================================== */
 remove_action('wp_head', 'print_emoji_detection_script', 7);
 remove_action('wp_print_styles', 'print_emoji_styles');
+remove_action('wp_head', 'wlwmanifest_link');
+remove_action('wp_head', 'wp_resource_hints', 2 );
+remove_action('wp_head', 'feed_links', 2);
+remove_action('wp_head', 'rest_output_link_wp_head');
+remove_action('wp_head', 'rsd_link');
+remove_action('wp_head', 'wp_generator');
+
+/* ====================================================================================================
+   Disable REST API except for administrators
+==================================================================================================== */
+add_filter('rest_authentication_errors', function ($access) {
+    if (!current_user_can('administrator')) {
+        return new WP_Error('rest_cannot_access', 'Only authenticated users can access the REST API.', ['status' => rest_authorization_required_code()]);
+    }
+    return $access;
+});
+
+/* ====================================================================================================
+   Disable XML-RPC
+==================================================================================================== */
+add_filter('xmlrpc_enabled', function (): bool {
+    return false;
+});
 
 /* ====================================================================================================
  Enqueue Scripts and Styles
@@ -37,7 +64,7 @@ function include_scripts_and_styles() {
    wp_enqueue_script(
         'nssm-script',
         get_template_directory_uri() . '/assets/scripts/app.js',
-        array('jquery'),
+        array(),
         '',
         true
     );
