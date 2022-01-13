@@ -19,5 +19,3 @@ jobs:
       # Branches & Environments
         PRD_BRANCH: main
         PRD_ENV: nssmap
-
-        DEV_BRANCH: develop
