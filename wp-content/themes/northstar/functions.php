@@ -53,6 +53,11 @@ add_filter('xmlrpc_enabled', function (): bool {
     return false;
 });
 
+function my_deregister_scripts(){
+    wp_deregister_script( 'wp-embed' );
+}
+add_action('wp_footer', 'my_deregister_scripts');
+
 /* ====================================================================================================
  Enqueue Scripts and Styles
 ==================================================================================================== */
