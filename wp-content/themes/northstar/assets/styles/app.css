@@ -1,0 +1,181 @@
+/* ---------------------------------------------------------------------
+ Fonts
+------------------------------------------------------------------------ */
+
+/* ---------------------------------------------------------------------
+ RESET CSS (thanks Eric Meyer)
+------------------------------------------------------------------------ */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font-weight: inherit;
+    font-style: inherit;
+    font-family: inherit;
+    vertical-align: baseline;
+}
+
+body {
+    line-height: 1;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+blockquote {
+    quotes: none;
+}
+
+blockquote:before,
+blockquote:after {
+    content: '';
+    content: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+html {
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+}
+
+img, audio, canvas, video, picture, iframe, embed {
+    max-width: 100% !important;
+}
+
+/* ---------------------------------------------------------------------
+ HTML5 Elements
+------------------------------------------------------------------------ */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section, main {
+    display: block;
+}
+
+audio, canvas, video, progress, picture {
+    display: inline-block;
+}
+
+template {
+    display: none;
+}
+
+/* ---------------------------------------------------------------------
+ Variables
+------------------------------------------------------------------------ */
+:root {
+    --color-transparent: rgba(0,0,0,0);
+    --color-white: #ffffff;
+    --color-black: #000000;
+    --color-brand-offwhite: #f5f6f1;
+    --color-brand-shadow: #3a393e;
+    --color-brand-crimson: #df4e42;
+    --fontFamily-sans: Helvetica, Arial, sans-serif;
+    --fontFamily-serif: Georgia, Times, Times New Roman, serif;
+    --fontSize-xs: 14px;
+    --fontSize-sm: 16px;
+    --fontSize-md: 18px;
+    --fontSize-lg: 21px;
+    --fontSize-xl: 24px;
+    --lineHeight-one: 1;
+    --lineHeight-std: 1.4;
+}
+
+/* ---------------------------------------------------------------------
+ Base Styles
+------------------------------------------------------------------------ */
+html {
+    background-color: var(--color-brand-charcoal);
+}
+
+body {
+    min-height: 100vh;
+    background-color: var(--color-brand-offwhite);
+    color: var(--color-brand-shadow);
+    font-family: var(--fontFamily-sans);
+    font-size: var(--fontSize-md);
+    line-height: var(--lineHeight-std);
+    font-style: normal;
+    font-weight: normal;
+    overflow-y: scroll;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+    cursor: pointer;
+    -webkit-tap-highlight-color: var(--color-transparent);
+}
+
+a:hover,
+a:focus,
+a:active {
+    text-decoration: none;
+}
+
+/* ---------------------------------------------------------------------
+ Helper - isVisuallyHidden
+------------------------------------------------------------------------ */
+.isVisuallyHidden {
+    width: 1px !important;
+    height: 1px !important;
+    margin: -1px !important;
+    border: 0 !important;
+    padding: 0 !important;
+    clip: rect(0, 0, 0, 0) !important;
+    clip-path: inset(100%)!important;
+    overflow: hidden !important;
+    position: absolute !important;
+    white-space: nowrap !important;
+}
+
+/* ---------------------------------------------------------------------
+ Helper - Display Types
+------------------------------------------------------------------------ */
+.d-block {
+    display: block;
+}
+
+.d-inline-block {
+    display: inline-block;
+}
+
+.d-inline {
+    display: inline;
+}
+
+/* ---------------------------------------------------------------------
+ Layout - Tier
+------------------------------------------------------------------------ */
+.tier {
+
+}
+
+/* ---------------------------------------------------------------------
+ Layout - Wrapper
+------------------------------------------------------------------------ */
+.wrapper {
+    box-sizing: border-box;
+    min-width: 320px;
+    max-width: 1170px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
