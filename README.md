@@ -14,4 +14,8 @@ TODO
 
 ## Deployments
 
-TODO
+**Production**
+
+1. Merge code from the develop branch into the main branch
+1. Push code to the main branch on GitHub
+1. GitHub action will deploy to production and clear the cache
