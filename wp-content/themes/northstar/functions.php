@@ -21,7 +21,7 @@ remove_theme_support('post-formats');
 remove_theme_support('starter-content');
 
 /* ====================================================================================================
-   Cleanup Head Stuff
+   Cleanup the Head
 ==================================================================================================== */
 remove_action('wp_head', 'print_emoji_detection_script', 7);
 remove_action('wp_print_styles', 'print_emoji_styles');
@@ -32,9 +32,16 @@ remove_action('wp_head', 'rest_output_link_wp_head');
 remove_action('wp_head', 'rsd_link');
 remove_action('wp_head', 'wp_generator');
 
+add_action('wp_print_styles', function (): void {
+    wp_dequeue_style('wp-block-library');
+    wp_dequeue_style('wp-block-library-theme');
+});
+
 /* ====================================================================================================
-   Disable REST API except for administrators
+   Disable Stuff - Gutenberg, Rest API, XML-RPC, etc
 ==================================================================================================== */
+add_filter('use_block_editor_for_post', '__return_false', 10);
+
 add_filter('rest_authentication_errors', function ($access) {
     if (!current_user_can('administrator')) {
         return new WP_Error('rest_cannot_access', 'Only authenticated users can access the REST API.', ['status' => rest_authorization_required_code()]);
@@ -42,9 +49,6 @@ add_filter('rest_authentication_errors', function ($access) {
     return $access;
 });
 
-/* ====================================================================================================
-   Disable XML-RPC
-==================================================================================================== */
 add_filter('xmlrpc_enabled', function (): bool {
     return false;
 });
