@@ -86,7 +86,7 @@ template {
     --color-brand-offwhite: #f5f6f1;
     --color-brand-shadow: #3a393e;
     --color-brand-crimson: #df4e42;
-    --fontFamily-sans: Helvetica, Arial, sans-serif;
+    --fontFamily-sans: "Varela Round", Helvetica, Arial, sans-serif;
     --fontFamily-serif: Georgia, Times, Times New Roman, serif;
     --fontSize-xs: 14px;
     --fontSize-sm: 16px;
