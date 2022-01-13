@@ -1,5 +1,5 @@
 <?php get_header(); ?>
-<div>
+<div class="wrapper">
     Hello Minnesota!
 </div>
 <?php get_footer(); ?>
