@@ -9,5 +9,5 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap">
 
         <?php wp_head(); ?>
-    </head>4
+    </head>
     <body>
