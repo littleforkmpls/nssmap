@@ -1,0 +1,41 @@
+version: '3.6'
+
+services:
+  wordpress:
+    image: wordpress:5.8.3
+    restart: always
+    container_name: nssm.wordpress
+    ports:
+      - 8080:80
+    environment:
+      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_USER: admin
+      WORDPRESS_DB_PASSWORD: password
+      WORDPRESS_DB_NAME: wp_nssmap
+    volumes:
+      - ./app:/var/www/html
+    networks:
+      - default
+
+  db:
+    image: mysql:5.7
+    restart: always
+    platform: linux/amd64
+    container_name: nssm.db
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_RANDOM_ROOT_PASSWORD: '1'
+      MYSQL_DATABASE: 'wp_nssmap'
+      MYSQL_USER: 'admin'
+      MYSQL_PASSWORD: 'password'
+    networks:
+      - default
+
+volumes:
+  wordpress:
+  mysql:
+
+networks:
+  default:
+    driver: bridge
