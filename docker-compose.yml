@@ -29,12 +29,14 @@ services:
       MYSQL_DATABASE: 'wp_nssmap'
       MYSQL_USER: 'admin'
       MYSQL_PASSWORD: 'password'
+    volumes:
+      - db:/var/lib/mysql
     networks:
       - default
 
 volumes:
   wordpress:
-  mysql:
+  db:
 
 networks:
   default:
