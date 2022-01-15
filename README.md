@@ -10,7 +10,13 @@ North Star Story Map is a WordPress site developed for AIA Minnesota as a way to
 
 ## Local Development
 
-TODO
+1. Clone the repo from github
+1. Checkout the `develop` branch
+1. Switch to the project root directory
+1. Run `docker compose up -d`
+1. Create `app/wp-config.php` and fill in the appropriate values
+1. Download the database from WPEngine
+1. Import the database from production into the local database
 
 ## Deployments
 
