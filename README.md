@@ -18,6 +18,8 @@ North Star Story Map is a WordPress site developed for AIA Minnesota as a way to
 1. Download the database from WPEngine
 1. Import the database from production into the local database
 
+Note: Run `docker compose down` when local development is complete.
+
 ## Deployments
 
 **Production**
