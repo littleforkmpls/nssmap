@@ -11,3 +11,17 @@
         <?php wp_head(); ?>
     </head>
     <body>
+        <div class="wrapper"><?php // .wrapper closed in footer.php ?>
+            <div class="masthead" role="banner">
+                <div class="masthead__brand">
+                    <div class="logo">
+                        <a href="<?php echo site_url(); ?>">
+                            <img src="<?php bloginfo('template_directory'); ?>/assets/images/logo.png" alt="North Star Story Map" />
+                        </a>
+                    </div>
+                </div>
+                <div class="masthead__nav">
+
+                </div>
+            </div>
+
