@@ -3,11 +3,11 @@
 
             <div class="footer" role="contentinfo">
                 <div class="footer__links">
-                    <div class="partners">
-                        <div class="partners__hd">
-                            <h2 class="txt txt--subtitle">Collaborative Partners</h2>
+                    <div class="feature">
+                        <div class="feature__hd">
+                            <h2 class="txt txt--hdg4 txt--upper">Collaborative Partners</h2>
                         </div>
-                        <div class="partners__bd">
+                        <div class="feature__bd">
                             <ul class="logoList">
                                 <li class="logoList__item logoList__item--lg">
                                     <a href="https://www.aia-mn.org/">
