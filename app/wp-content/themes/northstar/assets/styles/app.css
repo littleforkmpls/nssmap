@@ -268,7 +268,7 @@ a:active {
     border: 1px solid var(--color-gray);
     background-color: var(--color-white);
     box-shadow: 3px 5px 8px 0px rgba(0,0,0,0.2);
-    transition: transform 80ms linear;
+    transition: transform 80ms ease-in-out;
     will-change: transform;
 }
 
@@ -282,6 +282,20 @@ a:active {
 
 .card:hover {
     transform: scale(1.05);
+}
+
+/* ---------------------------------------------------------------------
+ Component - Billboard
+------------------------------------------------------------------------ */
+.billboard {
+    border-radius: 15px 15px 0 0;
+    border: 1px solid var(--color-gray);
+    background-color: var(--color-white);
+    box-shadow: inset 0px 5px 8px 0px rgba(0,0,0,0.2);
+}
+
+.billboard__hd {
+    padding: 20px 25px 15px 25px;
 }
 
 /* ---------------------------------------------------------------------
@@ -381,6 +395,24 @@ a:active {
 .logo {
     display: inline-block;
     max-width: 300px;
+}
+
+/* ---------------------------------------------------------------------
+ Content - Video
+------------------------------------------------------------------------ */
+.video {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 */
+    height: 0;
+}
+.video iframe,
+.video object,
+.video embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }
 
 /* ---------------------------------------------------------------------

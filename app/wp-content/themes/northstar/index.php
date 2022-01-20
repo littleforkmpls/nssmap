@@ -1,21 +1,40 @@
 <?php get_header(); ?>
 <div class="main" role="main">
-    <div class="section">
-        <div class="hero">
 
+    <?php // hero ?>
+    <div class="section">
+        <div class="billboard">
+            <div class="billboard__hd">
+                <h2 class="txt txt--hdg3">A living collection of the <span class="txt txt--upper txt--color-crimson">spaces</span> and <span class="txt txt--upper txt--color-crimson">places</span> that shape us</h2>
+            </div>
+            <div class="billboard__bd">
+                <img class="d-block" src="https://via.placeholder.com/1000x450" alt="" />
+            </div>
         </div>
     </div>
+
+    <?php // intro ?>
     <div class="section">
-        <!-- lead in -->
+
     </div>
+
+    <?php // the map! ?>
     <div class="section">
-        <!-- map -->
+
     </div>
+
+    <?php // become a storyteller ?>
     <div class="section">
-        <!-- become a storyteller -->
-    </div>
-    <div class="section">
-        <!-- lead in -->
+        <div class="billboard">
+            <div class="billboard__hd">
+                <h2 class="txt txt--hdg3">Become a <span class="txt txt--upper txt--color-crimson">Storyteller</span></h2>
+            </div>
+            <div class="billboard__bd">
+                <div class="video">
+                    <iframe src="https://player.vimeo.com/video/76979871" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
     </div>
 
     <?php // featured stories ?>
