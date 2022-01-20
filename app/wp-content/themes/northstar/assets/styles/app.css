@@ -82,6 +82,7 @@ template {
 :root {
     --color-transparent: rgba(0,0,0,0);
     --color-white: #ffffff;
+    --color-gray: #e9e9e9;
     --color-black: #000000;
     --color-brand-offwhite: #f5f6f1;
     --color-brand-shadow: #3a393e;
@@ -190,7 +191,7 @@ a:active {
  Landmark - Main
 ------------------------------------------------------------------------ */
 .main {
-    min-height: 400px;
+    margin-bottom: 60px;
 }
 
 /* ---------------------------------------------------------------------
@@ -224,30 +225,92 @@ a:active {
 
 @media (min-width: 640px) {
     .wrapper {
-        max-width: 640px;
+        max-width: 720px;
     }
 }
 
-@media (min-width: 800px) {
+@media (min-width: 860px) {
     .wrapper {
         max-width: 1040px;
     }
 }
 
 /* ---------------------------------------------------------------------
- Component - Partners
+ Layout - Section
 ------------------------------------------------------------------------ */
-.partners {
+.section:not(:last-child) {
+    margin-bottom: 50px;
+}
+
+/* ---------------------------------------------------------------------
+ Component - Feature
+------------------------------------------------------------------------ */
+.feature {
     text-align: center;
 }
 
-.partners__hd {
+.feature__hd {
+    margin-bottom: 15px;
+}
+
+@media (min-width: 640px) {
+    .feature {
+        text-align: initial;
+    }
+}
+
+/* ---------------------------------------------------------------------
+ Component - Card
+------------------------------------------------------------------------ */
+.card {
+    padding: 15px 15px 10px 15px;
+    border-radius: 5px;
+    border: 1px solid var(--color-gray);
+    background-color: var(--color-white);
+    box-shadow: 3px 5px 8px 0px rgba(0,0,0,0.2);
+    transition: transform 80ms linear;
+    will-change: transform;
+}
+
+.card__media {
+    padding-bottom: 15px;
+}
+
+.card__meta {
+    font-size: var(--fontSize-xs);
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+/* ---------------------------------------------------------------------
+ Component - Blocks
+------------------------------------------------------------------------ */
+.blocks > *:not(:last-child) {
     margin-bottom: 20px;
 }
 
 @media (min-width: 640px) {
-    .partners {
-        text-align: initial;
+    .blocks {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+
+    .blocks > * {
+        flex-basis: calc(50% - 10px);
+    }
+
+    .blocks > *:not(:last-child) {
+        margin-bottom: 0;
+    }
+}
+
+@media (min-width: 860px) {
+    .blocks > * {
+        flex-basis: calc(33.333333% - 15px);
     }
 }
 
@@ -301,7 +364,7 @@ a:active {
     }
 }
 
-@media (min-width: 800px) {
+@media (min-width: 860px) {
     .logoList__item a {
         max-width: 180px;
     }
@@ -326,17 +389,18 @@ a:active {
 .txt {
     color: inherit;
     font-family: inherit;
-    font-size: var(--fontSize-md);
+    font-size: inherit;
     line-height: var(--lineHeight-std);
     font-style: normal;
     font-weight: normal;
+    text-transform: inherit;
 }
 
-.txt--subtitle {
-    font-size: var(--fontSize-md);
-    font-weight: bold;
-    text-transform: uppercase;
-}
+.txt--hdg1 {}
+.txt--hdg2 { font-size: var(--fontSize-xl); }
+.txt--hdg3 { font-size: var(--fontSize-lg); }
+.txt--hdg4 { font-size: var(--fontSize-md); }
+.txt--hdg5 { font-size: var(--fontSize-sm); }
 
 /* Mix'n'Match */
 .txt--color-white { color: var(--color-white); }
@@ -361,8 +425,5 @@ a:active {
 .txt--bold { font-weight: bold; }
 .txt--italic { font-style: italic; }
 .txt--center { text-align: center; }
-.txt--upper {
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
+.txt--upper { text-transform: uppercase; }
 
