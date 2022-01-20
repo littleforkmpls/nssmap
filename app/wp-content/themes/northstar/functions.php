@@ -20,6 +20,13 @@ remove_theme_support('html5');
 remove_theme_support('post-formats');
 remove_theme_support('starter-content');
 
+add_action(
+    'after_setup_theme',
+    function() {
+        add_theme_support( 'html5', [ 'script', 'style' ] );
+    }
+);
+
 /* ====================================================================================================
    Cleanup the Head
 ==================================================================================================== */
