@@ -98,3 +98,10 @@ function hide_admin_pages(){
 }
 
 add_action('admin_menu', 'hide_admin_pages');
+
+/* ====================================================================================================
+ Enable ACF Functionality
+==================================================================================================== */
+if( function_exists('acf_add_options_page') ) {
+	acf_add_options_page();
+}
