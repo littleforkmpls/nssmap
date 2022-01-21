@@ -20,7 +20,9 @@
 
     <?php // the map! ?>
     <div class="section">
-        <?php echo do_shortcode("[novo-map id=1]"); ?>
+        <div class="map">
+            <?php echo do_shortcode("[novo-map id=1]"); ?>
+        </div>
     </div>
 
     <?php // become a storyteller - move to submit story page
