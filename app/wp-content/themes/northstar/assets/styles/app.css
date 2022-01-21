@@ -87,7 +87,7 @@ template {
     --color-brand-offwhite: #f5f6f1;
     --color-brand-shadow: #3a393e;
     --color-brand-crimson: #df4e42;
-    --fontFamily-sans: "Varela Round", Helvetica, Arial, sans-serif;
+    --fontFamily-sans: "Montserrat", Helvetica, Arial, sans-serif;
     --fontFamily-serif: Georgia, Times, Times New Roman, serif;
     --fontSize-xs: 14px;
     --fontSize-sm: 16px;
@@ -315,10 +315,7 @@ a:active {
 
     .blocks > * {
         flex-basis: calc(50% - 10px);
-    }
-
-    .blocks > *:not(:last-child) {
-        margin-bottom: 0;
+        margin-bottom: 20px;
     }
 }
 
@@ -454,7 +451,7 @@ a:active {
 .txt--lh-std { line-height: var(--lineHeight-std); }
 
 .txt--underline { text-decoration: underline; }
-.txt--bold { font-weight: bold; }
+.txt--bold { font-weight: 600; }
 .txt--italic { font-style: italic; }
 .txt--center { text-align: center; }
 .txt--upper { text-transform: uppercase; }

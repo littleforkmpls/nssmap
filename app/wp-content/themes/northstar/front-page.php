@@ -5,7 +5,7 @@
     <div class="section">
         <div class="billboard">
             <div class="billboard__hd">
-                <h2 class="txt txt--hdg3">A living collection of the <span class="txt txt--upper txt--color-crimson">spaces</span> and <span class="txt txt--upper txt--color-crimson">places</span> that shape us</h2>
+                <h2 class="txt txt--hdg3">A living collection of the <span class="txt txt--upper txt--bold txt--color-crimson">spaces</span> and <span class="txt txt--upper txt--bold txt--color-crimson">places</span> that shape us</h2>
             </div>
             <div class="billboard__bd">
                 <img class="d-block" src="https://via.placeholder.com/1000x450" alt="" />
@@ -23,11 +23,12 @@
         <?php echo do_shortcode("[novo-map id=1]"); ?>
     </div>
 
-    <?php // become a storyteller ?>
+    <?php // become a storyteller - move to submit story page
+    /*
     <div class="section">
         <div class="billboard">
             <div class="billboard__hd">
-                <h2 class="txt txt--hdg3">Become a <span class="txt txt--upper txt--color-crimson">Storyteller</span></h2>
+                <h2 class="txt txt--hdg3">Become a <span class="txt txt--upper txt--bold txt--color-crimson">Storyteller</span></h2>
             </div>
             <div class="billboard__bd">
                 <div class="video">
@@ -36,12 +37,14 @@
             </div>
         </div>
     </div>
+    */
+     ?>
 
     <?php // featured stories ?>
     <div class="section">
         <div class="feature">
             <div class="feature__hd">
-                <h2 class="txt txt--hdg3">Featured <span class="txt txt--upper txt--color-crimson">Stories</span></h2>
+                <h2 class="txt txt--hdg3">Featured <span class="txt txt--upper txt--bold txt--color-crimson">Stories</span></h2>
             </div>
             <div class="feature__bd">
                 <ul class="blocks">

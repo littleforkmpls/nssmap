@@ -5,7 +5,7 @@
                 <div class="footer__links">
                     <div class="feature">
                         <div class="feature__hd">
-                            <h2 class="txt txt--hdg4 txt--upper">Collaborative Partners</h2>
+                            <h2 class="txt txt--hdg4 txt--upper txt--bold">Collaborative Partners</h2>
                         </div>
                         <div class="feature__bd">
                             <ul class="logoList">
