@@ -105,3 +105,12 @@ add_action('admin_menu', 'hide_admin_pages');
 if( function_exists('acf_add_options_page') ) {
 	acf_add_options_page();
 }
+
+/* ====================================================================================================
+ Enable Novo Map on just Posts
+==================================================================================================== */
+add_filter( 'novo_map_allowed_post_type', 'novo_map_post_types' );
+function novo_map_post_types($types) {
+    $types = array('post');
+    return $types;
+}

@@ -1,0 +1,6 @@
+# Node Package Manager
+node_modules
+# compiled files
+dist
+# package-lock
+package-lock.json
