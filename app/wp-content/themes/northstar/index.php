@@ -1,3 +1,5 @@
+<?php // HOME PAGE ?>
+
 <?php get_header(); ?>
 <div class="main" role="main">
 

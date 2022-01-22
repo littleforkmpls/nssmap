@@ -1,1 +1,2 @@
-<h1>Home Template (Stories List)</h1>
+<?php // STORIES PAGE ?>
+<h1>Home Template</h1>
