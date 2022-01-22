@@ -95,7 +95,7 @@ template {
     --fontSize-lg: 21px;
     --fontSize-xl: 24px;
     --lineHeight-one: 1;
-    --lineHeight-std: 1.4;
+    --lineHeight-std: 1.5;
 }
 
 /* ---------------------------------------------------------------------
@@ -256,6 +256,10 @@ a:active {
 ------------------------------------------------------------------------ */
 .feature {
     text-align: center;
+}
+
+.feature--never-center {
+    text-align: initial;
 }
 
 .feature__hd {
