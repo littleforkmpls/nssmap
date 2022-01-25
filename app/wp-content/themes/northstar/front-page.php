@@ -12,7 +12,7 @@
             </div>
             <div class="billboard__bd">
                 <video class="d-block" autoplay loop>
-                    <source src="<?php bloginfo('template_directory'); ?>/assets/video/AIA_Hero.mp4" type="video/webm">
+                    <source src="<?php bloginfo('template_directory'); ?>/assets/video/AIA_Hero.webm" type="video/webm">
                     <source src="<?php bloginfo('template_directory'); ?>/assets/video/AIA_Hero.mp4" type="video/mp4">
                 </video>
             </div>
