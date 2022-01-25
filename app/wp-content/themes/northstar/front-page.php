@@ -11,7 +11,10 @@
                 <h2 class="txt txt--hdg3">A living collection of the <span class="txt txt--upper txt--bold txt--color-crimson">spaces</span> and <span class="txt txt--upper txt--bold txt--color-crimson">places</span> that shape us</h2>
             </div>
             <div class="billboard__bd">
-                <img class="d-block" src="https://via.placeholder.com/1000x562" alt="" />
+                <video class="d-block" autoplay loop>
+                    <source src="<?php bloginfo('template_directory'); ?>/assets/video/AIA_Hero.mp4" type="video/webm">
+                    <source src="<?php bloginfo('template_directory'); ?>/assets/video/AIA_Hero.mp4" type="video/mp4">
+                </video>
             </div>
         </div>
     </div>
