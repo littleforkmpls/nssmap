@@ -83,6 +83,7 @@ template {
     --color-transparent: rgba(0,0,0,0);
     --color-white: #ffffff;
     --color-gray: #e9e9e9;
+    --color-charcoal: #a8a8a8;
     --color-black: #000000;
     --color-brand-offwhite: #f5f6f1;
     --color-brand-shadow: #3a393e;
@@ -102,7 +103,7 @@ template {
  Base Styles
 ------------------------------------------------------------------------ */
 html {
-    background-color: var(--color-brand-charcoal);
+    background-color: var(--color-gray);
 }
 
 body {
@@ -115,6 +116,7 @@ body {
     font-style: normal;
     font-weight: normal;
     overflow-y: scroll;
+    font-synthesis: none;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
@@ -178,12 +180,68 @@ a:active {
 ------------------------------------------------------------------------ */
 .masthead__brand {
     text-align: center;
-    padding: 30px 0;
+    padding: 40px 0 15px 0;
 }
 
-@media (min-width: 640px) {
+.masthead__nav {
+    padding-bottom: 20px;
+}
+
+@media (min-width: 860px) {
+    .masthead {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        align-items: center;
+        padding: 30px 0 40px 0;
+    }
+
     .masthead__brand {
         text-align: initial;
+        padding: 10px 0 0 0;
+    }
+
+    .masthead__nav {
+        padding-bottom: 0;
+    }
+}
+
+/* ---------------------------------------------------------------------
+ Landmark - Navigation
+------------------------------------------------------------------------ */
+.nav__list {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.nav a {
+    display: inline-block;
+    padding: 10px 8px; /* increase tap target size */
+    font-size: var(--fontSize-sm);
+    font-weight: 600;
+    text-transform: uppercase;
+    transition: color 120ms linear;
+}
+
+.nav a:hover,
+.nav a:focus {
+    color: var(--color-brand-crimson);
+}
+
+@media (min-width: 860px) {
+    .nav__list {
+        display: initial;
+    }
+
+    .nav__list > li {
+        display: inline-block;
+        padding-left: 20px;
+    }
+
+    .nav a {
+        padding: 0;
     }
 }
 

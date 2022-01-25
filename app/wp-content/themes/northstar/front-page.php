@@ -59,7 +59,7 @@
                 <ul class="blocks">
                     <?php for ($i = 1; $i <= 6; $i++) { ?>
                     <li>
-                        <a class="d-block">
+                        <a href="#" class="d-block">
                             <div class="card">
                                 <div class="card__media">
                                     <img class="d-block" src="https://via.placeholder.com/400" alt="First Avenue" />

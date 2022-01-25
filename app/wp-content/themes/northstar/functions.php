@@ -153,3 +153,15 @@ function fix_svg() {
 }
 
 add_action( 'admin_head', 'fix_svg' );
+
+/* ====================================================================================================
+ Register Menus
+==================================================================================================== */
+function custom_menus() {
+    register_nav_menus(
+        array(
+            'masthead-navigation' => 'Masthead Navigation'
+        )
+    );
+}
+add_action( 'init', 'custom_menus' );

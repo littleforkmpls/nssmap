@@ -21,7 +21,21 @@
                     </div>
                 </div>
                 <div class="masthead__nav">
-
+                    <div class="nav" role="nav">
+                        <?php
+                            wp_nav_menu(array(
+                                'container'            => false,
+                                'menu_class'           => 'nav__list',
+                                'menu_id'              => 'primaryNav',
+                                'echo'                 => true,
+                                'fallback_cb'          => false,
+                                'items_wrap'           => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+                                'item_spacing'         => 'preserve',
+                                'depth'                => 1,
+                                'theme_location'       => 'masthead-navigation'
+                            ));
+                        ?>
+                    </div>
                 </div>
             </div>
 
