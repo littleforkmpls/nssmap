@@ -31,7 +31,7 @@
         "elementType": "geometry.stroke",
         "stylers": [
             {
-                "color": "#3a393e"
+                "visibility": "off"
             }
         ]
     },
