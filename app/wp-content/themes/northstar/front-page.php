@@ -11,7 +11,7 @@
                 <h2 class="txt txt--hdg3">A living collection of the <span class="txt txt--upper txt--bold txt--color-crimson">spaces</span> and <span class="txt txt--upper txt--bold txt--color-crimson">places</span> that shape us</h2>
             </div>
             <div class="billboard__bd">
-                <video class="d-block" autoplay loop muted>
+                <video class="d-block" autoplay loop muted playsinline>
                     <source src="<?php bloginfo('template_directory'); ?>/assets/video/AIA_Hero.mp4" type="video/mp4">
                 </video>
             </div>
@@ -33,23 +33,6 @@
             <?php echo do_shortcode("[novo-map id=1]"); ?>
         </div>
     </div>
-
-    <?php // become a storyteller - move to submit story page
-    /*
-    <div class="section">
-        <div class="billboard">
-            <div class="billboard__hd">
-                <h2 class="txt txt--hdg3">Become a <span class="txt txt--upper txt--bold txt--color-crimson">Storyteller</span></h2>
-            </div>
-            <div class="billboard__bd">
-                <div class="video">
-                    <iframe src="https://player.vimeo.com/video/76979871" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
-                </div>
-            </div>
-        </div>
-    </div>
-    */
-     ?>
 
     <?php // featured stories ?>
     <div class="section">
