@@ -20,6 +20,7 @@ remove_theme_support('html5');
 remove_theme_support('post-formats');
 remove_theme_support('starter-content');
 
+// hide editor in favor of ACF fields
 add_action(
     'admin_init',
     function() {
@@ -28,12 +29,16 @@ add_action(
     }
 );
 
+// tweak script & style output
 add_action(
     'after_setup_theme',
     function() {
         add_theme_support( 'html5', [ 'script', 'style' ] );
     }
 );
+
+// custom image sizes(s)
+add_image_size('card-image-size', 400, 400, true );
 
 /* ====================================================================================================
    Cleanup the Head
