@@ -21,6 +21,14 @@ remove_theme_support('post-formats');
 remove_theme_support('starter-content');
 
 add_action(
+    'admin_init',
+    function() {
+        remove_post_type_support('page', 'editor');
+        remove_post_type_support('post', 'editor');
+    }
+);
+
+add_action(
     'after_setup_theme',
     function() {
         add_theme_support( 'html5', [ 'script', 'style' ] );
