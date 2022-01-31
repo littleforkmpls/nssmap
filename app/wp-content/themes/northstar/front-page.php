@@ -53,7 +53,17 @@
                         <a href="<?php the_permalink(); ?>" class="d-block">
                             <div class="card">
                                 <div class="card__media">
-                                    <img class="d-block" src="https://via.placeholder.com/400" alt="First Avenue" />
+                                    <?php
+                                        $img_featuredPost = get_the_post_thumbnail_url($postID, 'card-image-size');
+                                        $imgAlt_featuredPost = get_the_title();
+
+                                        if ($img_featuredPost == '') {
+                                            $img_featuredPost = get_bloginfo('template_directory') . '/assets/images/no-image-card.jpg';
+                                            $imgAlt_featuredPost = "No Image Available";
+                                        }
+
+                                    ?>
+                                    <img class="d-block" src="<?php echo $img_featuredPost; ?>?" alt="<?php echo $imgAlt_featuredPost; ?>" />
                                 </div>
                                 <div class="card__title">
                                     <h3 class="txt txt--hdg5 txt--upper txt--bold txt--truncated"><?php the_title(); ?></h3>
