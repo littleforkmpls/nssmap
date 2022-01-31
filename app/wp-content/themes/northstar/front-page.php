@@ -59,15 +59,21 @@
             </div>
             <div class="feature__bd">
                 <ul class="blocks">
-                    <?php for ($i = 1; $i <= 6; $i++) { ?>
+                    <?php
+                        $args_featuredPosts = array(
+                            'post__in' => get_option('sticky_posts'),
+                        );
+                    ?>
+                    <?php $query_featuredPosts = new WP_Query($args_featuredPosts); ?>
+                    <?php while ($query_featuredPosts->have_posts()) : $query_featuredPosts->the_post(); ?>
                     <li>
-                        <a href="#" class="d-block">
+                        <a href="<?php the_permalink(); ?>" class="d-block">
                             <div class="card">
                                 <div class="card__media">
                                     <img class="d-block" src="https://via.placeholder.com/400" alt="First Avenue" />
                                 </div>
                                 <div class="card__title">
-                                    <h3 class="txt txt--hdg4 txt--upper txt--bold">First Avenue</h3>
+                                    <h3 class="txt txt--hdg4 txt--upper txt--bold"><?php the_title(); ?></h3>
                                 </div>
                                 <div class="card__meta">
                                     Minneapolis, MN
@@ -75,7 +81,8 @@
                             </div>
                         </a>
                     </li>
-                    <?php } ?>
+                    <?php endwhile; ?>
+                    <?php wp_reset_postdata(); ?>
                 </ul>
             </div>
         </div>
