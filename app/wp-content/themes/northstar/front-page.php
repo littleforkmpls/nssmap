@@ -56,7 +56,7 @@
                                     <img class="d-block" src="https://via.placeholder.com/400" alt="First Avenue" />
                                 </div>
                                 <div class="card__title">
-                                    <h3 class="txt txt--hdg4 txt--upper txt--bold"><?php the_title(); ?></h3>
+                                    <h3 class="txt txt--hdg5 txt--upper txt--bold txt--truncated"><?php the_title(); ?></h3>
                                 </div>
                                 <div class="card__meta">
                                     Minneapolis, MN

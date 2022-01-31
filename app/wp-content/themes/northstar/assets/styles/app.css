@@ -372,27 +372,28 @@ a:active {
 /* ---------------------------------------------------------------------
  Component - Blocks
 ------------------------------------------------------------------------ */
-.blocks > *:not(:last-child) {
-    margin-bottom: 20px;
+.blocks > * {
+    padding-bottom: 20px;
 }
 
 @media (min-width: 640px) {
     .blocks {
-        display: flex;
-        flex-flow: row wrap;
-        justify-content: space-between;
-        align-items: flex-start;
+        font-size: 0;
+        margin: -20px 0 0 -20px; /* offset children */
     }
 
     .blocks > * {
-        flex-basis: calc(50% - 10px);
-        margin-bottom: 20px;
+        box-sizing: border-box;
+        display: inline-block;
+        padding: 20px 0 0 20px;
+        width: 50%;
+        vertical-align: top;
     }
 }
 
 @media (min-width: 860px) {
     .blocks > * {
-        flex-basis: calc(33.333333% - 15px);
+        width: 33.333333%;
     }
 }
 
@@ -527,3 +528,8 @@ a:active {
 .txt--center { text-align: center; }
 .txt--upper { text-transform: uppercase; }
 
+.txt--truncated {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
