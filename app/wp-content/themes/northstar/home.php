@@ -1,2 +1,5 @@
 <?php // STORIES PAGE ?>
-<h1>Home Template</h1>
+
+<?php
+    require_once(get_theme_file_path('/archive.php'));
+?>

@@ -1,1 +1,11 @@
-<h1>Archive Page</h1>
+<?php // 404 ERROR PAGE ?>
+
+<?php get_header(); ?>
+<div class="main" role="main">
+
+    <div class="section">
+        <h1>Story Archive</h1>
+    </div>
+
+</div>
+<?php get_footer(); ?>
