@@ -8,11 +8,11 @@
         <div class="billboard">
             <div class="billboard__hd">
                 <h1 class="isVisuallyHidden">North Star Story Map</h1>
-                <h2 class="txt txt--hdg3">A living collection of the <span class="txt txt--upper txt--bold txt--color-crimson">spaces</span> and <span class="txt txt--upper txt--bold txt--color-crimson">places</span> that shape us</h2>
+                <h2 class="txt txt--hdg3"><?php the_field('homepage_hero_headline'); ?></h2>
             </div>
             <div class="billboard__bd">
                 <video class="d-block" autoplay loop muted playsinline>
-                    <source src="<?php bloginfo('template_directory'); ?>/assets/video/AIA_Hero.mp4" type="video/mp4">
+                    <source src="<?php the_field('homepage_hero_video'); ?>" type="video/mp4">
                 </video>
             </div>
         </div>
@@ -22,7 +22,7 @@
     <div class="section">
         <div class="feature feature--never-center">
             <div class="feature__bd">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit.</p>
+                <p><?php the_field('homepage_blurb'); ?></p>
             </div>
         </div>
     </div>
@@ -69,7 +69,12 @@
                                     <h3 class="txt txt--hdg5 txt--upper txt--bold txt--truncated"><?php the_title(); ?></h3>
                                 </div>
                                 <div class="card__meta">
-                                    Minneapolis, MN
+                                    <?php if( get_field('story_city') ): ?>
+                                        <?php the_field('story_city'); ?>
+                                    <?php endif; ?>
+                                    <?php if( get_field('story_state') ): ?>
+                                        <?php the_field('story_state'); ?>
+                                    <?php endif; ?>
                                 </div>
                             </div>
                         </a>
