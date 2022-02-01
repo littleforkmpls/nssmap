@@ -534,3 +534,9 @@ a:active {
     white-space: nowrap;
     text-overflow: ellipsis;
 }
+
+.txt--hasEms em {
+    color: var(--color-brand-crimson);
+    font-weight: 600;
+    text-transform: uppercase;
+}

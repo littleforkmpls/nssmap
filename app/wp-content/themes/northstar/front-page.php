@@ -8,7 +8,7 @@
         <div class="billboard">
             <div class="billboard__hd">
                 <h1 class="isVisuallyHidden">North Star Story Map</h1>
-                <h2 class="txt txt--hdg3"><?php the_field('homepage_hero_headline'); ?></h2>
+                <h2 class="txt txt--hdg3 txt--hasEms"><?php the_field('homepage_hero_headline'); ?></h2>
             </div>
             <div class="billboard__bd">
                 <video class="d-block" autoplay loop muted playsinline>
@@ -38,7 +38,7 @@
     <div class="section">
         <div class="feature">
             <div class="feature__hd">
-                <h2 class="txt txt--hdg3">Featured <span class="txt txt--upper txt--bold txt--color-crimson">Stories</span></h2>
+                <h2 class="txt txt--hdg3 txt--hasEms">Featured <em>Stories</em></h2>
             </div>
             <div class="feature__bd">
                 <ul class="blocks">
