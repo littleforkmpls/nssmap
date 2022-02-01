@@ -58,6 +58,7 @@ html {
 
 img, audio, canvas, video, picture, iframe, embed {
     max-width: 100% !important;
+    height: auto;
 }
 
 /* ---------------------------------------------------------------------
