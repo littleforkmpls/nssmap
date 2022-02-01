@@ -29,7 +29,7 @@
 
     <?php // the map! ?>
     <div class="section">
-        <div class="map">
+        <div class="map" aria-hidden="true">
             <?php echo do_shortcode("[novo-map id=1]"); ?>
         </div>
     </div>
