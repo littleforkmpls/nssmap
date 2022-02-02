@@ -19,6 +19,9 @@
                 </ul>
                 <?php endif; ?>
             </div>
+            <div class="feature__ft">
+                <?php get_template_part('includes/story-pagination'); ?>
+            </div>
         </div>
     </div>
 

@@ -40,6 +40,13 @@ add_action(
 // custom image sizes(s)
 add_image_size('card-image-size', 400, 400, true );
 
+// add classes to pagination links
+add_filter('next_posts_link_attributes', 'posts_link_attributes');
+add_filter('previous_posts_link_attributes', 'posts_link_attributes');
+function posts_link_attributes() {
+    return 'class="btn btn--fixedSize"';
+}
+
 /* ====================================================================================================
    Cleanup the Head
 ==================================================================================================== */
@@ -79,7 +86,7 @@ function my_deregister_scripts(){
 add_action('wp_footer', 'my_deregister_scripts');
 
 /* ====================================================================================================
- Enqueue Scripts and Styles
+   Enqueue Scripts and Styles
 ==================================================================================================== */
 function include_scripts_and_styles() {
     wp_enqueue_style(
@@ -102,7 +109,7 @@ function include_scripts_and_styles() {
 add_action('wp_enqueue_scripts', 'include_scripts_and_styles');
 
 /* ====================================================================================================
- Customize Admin Panel
+   Customize Admin Panel
 ==================================================================================================== */
 function hide_admin_pages(){
     global $submenu;
@@ -113,14 +120,14 @@ function hide_admin_pages(){
 add_action('admin_menu', 'hide_admin_pages');
 
 /* ====================================================================================================
- Enable ACF Functionality
+   Enable ACF Functionality
 ==================================================================================================== */
 if( function_exists('acf_add_options_page') ) {
 	acf_add_options_page();
 }
 
 /* ====================================================================================================
- Enable Novo Map on Posts
+   Enable Novo Map on Posts
 ==================================================================================================== */
 add_filter( 'novo_map_allowed_post_type', 'novo_map_post_types' );
 function novo_map_post_types($types) {
@@ -129,7 +136,7 @@ function novo_map_post_types($types) {
 }
 
 /* ====================================================================================================
- Enable Support for uploading SVGs to Media Library
+   Enable Support for uploading SVGs to Media Library
 ==================================================================================================== */
 add_filter('wp_check_filetype_and_ext', function($data, $file, $filename, $mimes) {
 
@@ -168,7 +175,7 @@ function fix_svg() {
 add_action( 'admin_head', 'fix_svg' );
 
 /* ====================================================================================================
- Register Menus
+   Register Menus
 ==================================================================================================== */
 function custom_menus() {
     register_nav_menus(

@@ -89,6 +89,7 @@ template {
     --color-brand-offwhite: #f5f6f1;
     --color-brand-shadow: #3a393e;
     --color-brand-crimson: #df4e42;
+    --color-brand-crimson-hover: #e73d2e;
     --fontFamily-sans: "Montserrat", Helvetica, Arial, sans-serif;
     --fontFamily-serif: Georgia, Times, Times New Roman, serif;
     --fontSize-xs: 14px;
@@ -325,6 +326,10 @@ a:active {
     margin-bottom: 15px;
 }
 
+.feature__ft {
+    margin-top: 40px;
+}
+
 @media (min-width: 640px) {
     .feature {
         text-align: initial;
@@ -373,7 +378,7 @@ a:active {
 /* ---------------------------------------------------------------------
  Component - Blocks
 ------------------------------------------------------------------------ */
-.blocks > * {
+.blocks > *:not(:last-child) {
     padding-bottom: 20px;
 }
 
@@ -386,6 +391,7 @@ a:active {
     .blocks > * {
         box-sizing: border-box;
         display: inline-block;
+        padding-bottom: 0 !important; /* override small screen rule specificity */
         padding: 20px 0 0 20px;
         width: 50%;
         vertical-align: top;
@@ -396,6 +402,20 @@ a:active {
     .blocks > * {
         width: 33.333333%;
     }
+}
+
+/* ---------------------------------------------------------------------
+ Component - Pagination
+------------------------------------------------------------------------ */
+.pagination {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.pagination > * + * {
+    margin-left: 15px;
 }
 
 /* ---------------------------------------------------------------------
@@ -457,6 +477,35 @@ a:active {
     .logoList__item--xs {
         flex-basis: 20%;
     }
+}
+
+/* ---------------------------------------------------------------------
+ Forms - Button
+------------------------------------------------------------------------ */
+.btn {
+    display: inline-block;
+    padding: 15px 20px;
+    border-radius: 3px;
+    box-shadow: 1px 3px 5px 0px rgba(0,0,0,0.2);
+    background-color: var(--color-brand-crimson);
+    color: var(--color-white);
+    font-family: inherit;
+    font-size: var(--fontSize-md);
+    line-height: var(--lineHeight-one);
+    font-weight: 600;
+    text-align: center;
+    text-transform: uppercase;
+    transition: all 80ms ease-in-out;
+}
+
+.btn--fixedSize {
+    padding-left: 0;
+    padding-right: 0;
+    width: 140px;
+}
+
+.btn:hover {
+    background-color: var(--color-brand-crimson-hover);
 }
 
 /* ---------------------------------------------------------------------
