@@ -86,6 +86,17 @@ function my_deregister_scripts(){
 add_action('wp_footer', 'my_deregister_scripts');
 
 /* ====================================================================================================
+ Disable Update Notifications for Novo Map
+==================================================================================================== */
+
+function filter_plugin_updates($value) {
+    unset( $value->response['novo-map/novo-map.php'] );
+    return $value;
+}
+add_filter( 'site_transient_update_plugins', 'filter_plugin_updates' );
+
+
+/* ====================================================================================================
    Enqueue Scripts and Styles
 ==================================================================================================== */
 function include_scripts_and_styles() {
