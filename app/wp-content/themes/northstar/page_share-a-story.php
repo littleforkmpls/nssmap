@@ -14,9 +14,15 @@
                 <h2 class="txt txt--hdg3 txt--hasEms"><?php the_field('collection_form_hero_headline'); ?></h2>
             </div>
             <div class="billboard__bd">
+                <img class="d-block" src="<?php bloginfo('template_directory'); ?>/assets/images/Tutorial_Still_Frame.jpg" alt="Tutorial Still Frame" />
+                <?php
+                /* temp still frame for demo */
+                /*
                 <video class="d-block" autoplay loop muted playsinline>
                     <source src="<?php the_field('collection_form_hero_video'); ?>" type="video/mp4">
                 </video>
+                */
+                ?>
             </div>
         </div>
     </div>
