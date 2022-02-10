@@ -5,38 +5,26 @@
                 <div class="footer__links">
                     <div class="feature">
                         <div class="feature__hd">
-                            <h2 class="txt txt--hdg4 txt--upper txt--bold">Collaborative Partners</h2>
+                            <h2 class="txt txt--hdg4 txt--upper txt--bold"><?php the_field('footer_partners_headline', 'option'); ?></h2>
                         </div>
                         <div class="feature__bd">
+                            <?php if (have_rows('footer_partners', 'option')): ?>
                             <ul class="logoList">
-                                <li class="logoList__item logoList__item--lg">
-                                    <a href="https://www.aia-mn.org/">
-                                        <img src="<?php bloginfo('template_directory'); ?>/assets/images/partner-logo-aiamn.png" alt="AIA Minnesota" />
+                                <?php while (have_rows('footer_partners', 'option')) : the_row(); ?>
+                                <li class="logoList__item logoList__item--<?php the_sub_field('footer_partners_column_size'); ?>">
+                                    <a href="<?php the_sub_field('footer_partners_url'); ?>">
+                                        <img src="<?php the_sub_field('footer_partners_logo'); ?>" alt="<?php the_sub_field('footer_partners_name'); ?>" />
                                     </a>
                                 </li>
-                                <li class="logoList__item logoList__item--lg">
-                                    <a href="https://www.mnhs.org/">
-                                        <img src="<?php bloginfo('template_directory'); ?>/assets/images/partner-logo-mhs.png" alt="Minnesota Historical Soceity" />
-                                    </a>
-                                </li>
-                                <li class="logoList__item logoList__item--xs">
-                                    <a href="https://www.mnhs.org/millcity">
-                                        <img src="<?php bloginfo('template_directory'); ?>/assets/images/partner-logo-mcm.png" alt="Mill City Museum" />
-                                    </a>
-                                </li>
-                                <li class="logoList__item logoList__item--sm">
-                                    <a href="https://www.legacy.mn.gov/">
-                                        <img src="<?php bloginfo('template_directory'); ?>/assets/images/partner-logo-legacy.jpg" alt="Minnesota Legacy" />
-                                    </a>
-                                </li>
+                                <?php endwhile; ?>
                             </ul>
+                            <?php endif; ?>
                         </div>
                     </div>
                 </div>
                 <div class="footer__note">
                     <small>
-                        <span class="d-inline-then-block">This collaboration is made possible by the Arts and Cultural Heritage Fund through the vote of Minnesotans on Nov 4, 2008.</span>
-                        <span class="d-inline-then-block">Administered by the Minnesota Historical Society.</span>
+                        <?php the_field('footer_blurb', 'option'); ?>
                     </small>
                 </div>
             </div>

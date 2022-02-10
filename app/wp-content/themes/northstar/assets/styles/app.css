@@ -169,16 +169,6 @@ a:active {
     display: inline;
 }
 
-.d-inline-then-block {
-    display: inline;
-}
-
-@media (min-width: 960px) {
-    .d-inline-then-block {
-        display: block;
-    }
-}
-
 /* ---------------------------------------------------------------------
  Landmark - Masthead
 ------------------------------------------------------------------------ */
@@ -274,9 +264,19 @@ a:active {
     font-size: var(--fontSize-xs);
 }
 
+.footer__note span {
+    display: inline;
+}
+
 @media (min-width: 640px) {
     .footer__note {
         text-align: initial;
+    }
+}
+
+@media (min-width: 960px) {
+    .footer__note span {
+        display: block;
     }
 }
 

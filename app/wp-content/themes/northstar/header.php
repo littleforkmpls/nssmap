@@ -16,7 +16,7 @@
                 <div class="masthead__brand">
                     <div class="logo">
                         <a href="<?php echo site_url(); ?>">
-                            <img src="<?php bloginfo('template_directory'); ?>/assets/images/logo.png" alt="North Star Story Map" />
+                            <img src="<?php the_field('header_logo', 'option'); ?>" alt="North Star Story Map" />
                         </a>
                     </div>
                 </div>
