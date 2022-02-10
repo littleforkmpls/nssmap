@@ -228,6 +228,12 @@ a:active {
     transition: color 120ms linear;
 }
 
+.nav__list li.current_page_item a {
+    text-decoration: underline;
+    text-underline-offset: 10px;
+    text-decoration-thickness: 2px;
+}
+
 .nav a:hover,
 .nav a:focus {
     color: var(--color-brand-crimson);
