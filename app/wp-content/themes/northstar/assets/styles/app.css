@@ -596,7 +596,7 @@ a:active {
  Novo Map
 ------------------------------------------------------------------------ */
 .infobox {
-    position: relative;
+    position: relative; /* set to absolute eventually by the javascript */
     width: 150px !important;
     min-height: 150px;
     max-width: 80% !important;
