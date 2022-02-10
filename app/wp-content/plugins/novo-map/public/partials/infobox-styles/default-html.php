@@ -4,7 +4,7 @@
             <?php $wp_attachment_image_src = wp_get_attachment_image_src($marker->infobox_image(),'thumbnail'); ?>
             <img src="<?php echo $wp_attachment_image_src[0]; ?>" alt="<?php echo esc_attr_e($marker->title()); ?>">
         <?php } else { ?>
-            <img src="<?php echo get_bloginfo('template_directory') . '/assets/images/no-image-card.jpg'?>" alt="No Image Available">
+            <img src="<?php echo get_bloginfo('template_directory') . '/assets/images/no-image-card-thumbnail.jpg'?>" alt="No Image Available">
         <?php } ?>
     </div>
     <div class="infobox__content__bd">
