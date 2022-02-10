@@ -1,4 +1,4 @@
-<?php // GENERAL PAGES :: About, Privacy, Forms, etc ?>
+<?php /* Template Name: General Page Template */ ?>
 
 <?php // 404 ERROR PAGE ?>
 
