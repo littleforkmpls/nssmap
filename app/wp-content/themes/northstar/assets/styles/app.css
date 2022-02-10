@@ -589,3 +589,18 @@ a:active {
     font-weight: 600;
     text-transform: uppercase;
 }
+
+/* ---------------------------------------------------------------------
+ Novo Map
+------------------------------------------------------------------------ */
+.infobox {
+    width: 320px !important;
+    height: 210px;
+    max-width: 80% !important;
+    overflow-y: auto;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid var(--color-gray);
+    background-color: var(--color-white); /* override */
+    box-shadow: 3px 5px 8px 0px rgba(0,0,0,0.2);
+}
