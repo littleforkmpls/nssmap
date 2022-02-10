@@ -92,6 +92,7 @@ template {
     --color-brand-crimson-hover: #e73d2e;
     --fontFamily-sans: "Montserrat", Helvetica, Arial, sans-serif;
     --fontFamily-serif: Georgia, Times, Times New Roman, serif;
+    --fontSize-xxs: 13px;
     --fontSize-xs: 14px;
     --fontSize-sm: 16px;
     --fontSize-md: 18px;
@@ -563,6 +564,7 @@ a:active {
 .txt--family-serif { font-family: var(--fontFamily-serif); }
 .txt--family-sans { font-family: var(--fontFamily-sans); }
 
+.txt--size-xxs { font-size: var(--fontSize-xxs); }
 .txt--size-xs { font-size: var(--fontSize-xs); }
 .txt--size-sm { font-size: var(--fontSize-sm); }
 .txt--size-md { font-size: var(--fontSize-md); }
@@ -594,13 +596,31 @@ a:active {
  Novo Map
 ------------------------------------------------------------------------ */
 .infobox {
-    width: 320px !important;
-    height: 210px;
+    position: relative;
+    width: 150px !important;
+    min-height: 150px;
     max-width: 80% !important;
     overflow-y: auto;
-    padding: 10px;
+    padding: 10px 10px 8px 10px;
     border-radius: 5px;
     border: 1px solid var(--color-gray);
-    background-color: var(--color-white); /* override */
+    background-color: var(--color-white);
     box-shadow: 3px 5px 8px 0px rgba(0,0,0,0.2);
+}
+
+.infobox__close {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 5px;
+    background-color: var(--color-white);
+}
+
+.infobox__close__img {
+    display: block;
+    cursor: pointer;
+}
+
+.infobox__content__media {
+    margin-bottom: 5px;
 }

@@ -249,15 +249,13 @@ InfoBox.prototype.getCloseBoxImg_ = function () {
 
   if (this.closeBoxURL_ !== "") {
 
-    img  = "<img";
+    img  = "<div class='infobox__close'>";
+    img  += "<img";
     img += " src='" + this.closeBoxURL_ + "'";
-    img += " align=right"; // Do this because Opera chokes on style='float: right;'
+    img += " class='infobox__close__img'";
     img += " title='" + this.closeBoxTitle_ + "'";
-    img += " style='";
-    img += " position: relative;"; // Required by MSIE
-    img += " cursor: pointer;";
-    img += " margin: " + this.closeBoxMargin_ + ";";
     img += "'>";
+    img += "</div>"
   }
 
   return img;
