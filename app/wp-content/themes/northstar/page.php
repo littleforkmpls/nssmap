@@ -1,6 +1,6 @@
 <?php /* Template Name: General Page Template */ ?>
 
-<?php // 404 ERROR PAGE ?>
+<?php // T&Cs, About, etc ?>
 
 <?php get_header(); ?>
 <div class="main" role="main">
