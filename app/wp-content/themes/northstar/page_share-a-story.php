@@ -9,10 +9,10 @@
     <?php // hero ?>
     <div class="section">
         <div class="billboard">
-            <div class="billboard__hd">
+            <!-- <div class="billboard__hd">
                 <h1 class="isVisuallyHidden">North Star Story Map</h1>
                 <h2 class="txt txt--hdg3 txt--hasEms"><?php the_field('collection_form_hero_headline'); ?></h2>
-            </div>
+            </div> -->
             <div class="billboard__bd">
                 <img class="d-block" src="<?php bloginfo('template_directory'); ?>/assets/images/Tutorial_Still_Frame.jpg" alt="Tutorial Still Frame" />
                 <?php

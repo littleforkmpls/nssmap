@@ -314,9 +314,9 @@ a:active {
  Component - Media Frame (for maps, typeform, etc
 ------------------------------------------------------------------------ */
 .mediaFrame {
-    border: 1px solid var(--color-gray);
-    background-color: var(--color-white);
-    box-shadow: 3px 5px 8px 0px rgba(0,0,0,0.2);
+    /* border: 1px solid var(--color-gray); */
+    /* background-color: var(--color-white); */
+    /* box-shadow: 3px 5px 8px 0px rgba(0,0,0,0.2); */
 }
 
 /* ---------------------------------------------------------------------
@@ -341,6 +341,12 @@ a:active {
 @media (min-width: 640px) {
     .feature {
         text-align: initial;
+    }
+}
+
+@media (min-width: 860px) {
+    .feature--never-center {
+        padding: 0 40px;
     }
 }
 
@@ -373,14 +379,7 @@ a:active {
  Component - Billboard
 ------------------------------------------------------------------------ */
 .billboard {
-    border-radius: 15px 15px 0 0;
-    border: 1px solid var(--color-gray);
-    background-color: var(--color-white);
-    box-shadow: inset 0px 5px 8px 0px rgba(0,0,0,0.2);
-}
 
-.billboard__hd {
-    padding: 20px 25px 15px 25px;
 }
 
 /* ---------------------------------------------------------------------

@@ -6,10 +6,6 @@
     <?php // hero ?>
     <div class="section">
         <div class="billboard">
-            <div class="billboard__hd">
-                <h1 class="isVisuallyHidden">North Star Story Map</h1>
-                <h2 class="txt txt--hdg3 txt--hasEms"><?php the_field('homepage_hero_headline'); ?></h2>
-            </div>
             <div class="billboard__bd">
                 <video class="d-block" autoplay loop muted playsinline>
                     <source src="<?php the_field('homepage_hero_video'); ?>" type="video/mp4">
@@ -21,6 +17,10 @@
     <?php // intro ?>
     <div class="section">
         <div class="feature feature--never-center">
+            <div class="feature__hd">
+                <h1 class="isVisuallyHidden">North Star Story Map</h1>
+                <h2 class="txt txt--hdg3 txt--hasEms"><?php the_field('homepage_hero_headline'); ?></h2>
+            </div>
             <div class="feature__bd">
                 <p><?php the_field('homepage_blurb'); ?></p>
             </div>

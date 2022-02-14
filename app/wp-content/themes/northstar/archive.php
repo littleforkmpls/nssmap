@@ -7,7 +7,7 @@
     <div class="section">
         <div class="feature">
             <div class="feature__hd">
-                <h2 class="txt txt--hdg3 txt--hasEms">Read <em>Stories</em></h2>
+                <h2 class="txt txt--hdg3 txt--hasEms">Recent <em>Stories</em></h2>
             </div>
             <div class="feature__bd">
                 <?php if (have_posts()) : ?>
