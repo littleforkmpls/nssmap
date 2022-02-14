@@ -326,8 +326,8 @@ a:active {
     text-align: center;
 }
 
-.feature--never-center {
-    text-align: initial;
+.feature--snowflake {
+    text-align: initial; /* never center */
 }
 
 .feature__hd {
@@ -345,8 +345,8 @@ a:active {
 }
 
 @media (min-width: 860px) {
-    .feature--never-center {
-        padding: 0 40px;
+    .feature--snowflake {
+        padding: 0 40px; /* inset on desktop */
     }
 }
 

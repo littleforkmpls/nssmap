@@ -16,7 +16,7 @@
 
     <?php // intro ?>
     <div class="section">
-        <div class="feature feature--never-center">
+        <div class="feature feature--snowflake">
             <div class="feature__hd">
                 <h1 class="isVisuallyHidden">North Star Story Map</h1>
                 <h2 class="txt txt--hdg3 txt--hasEms"><?php the_field('homepage_hero_headline'); ?></h2>
