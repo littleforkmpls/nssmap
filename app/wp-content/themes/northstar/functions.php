@@ -191,7 +191,8 @@ add_action( 'admin_head', 'fix_svg' );
 function custom_menus() {
     register_nav_menus(
         array(
-            'masthead-navigation' => 'Masthead Navigation'
+            'masthead-navigation' => 'Masthead Navigation',
+            'footer-links' => 'Footer Links'
         )
     );
 }

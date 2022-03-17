@@ -27,6 +27,21 @@
                         <?php the_field('footer_blurb', 'option'); ?>
                     </small>
                 </div>
+                <div class="footer__links">
+                    <?php
+                        wp_nav_menu(array(
+                            'container'            => false,
+                            'menu_class'           => 'footer__links__list',
+                            'menu_id'              => 'footerNav',
+                            'echo'                 => true,
+                            'fallback_cb'          => false,
+                            'items_wrap'           => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+                            'item_spacing'         => 'preserve',
+                            'depth'                => 1,
+                            'theme_location'       => 'footer-links'
+                        ));
+                    ?>
+                </div>
             </div>
         </div><?php // close .wrapper from header.php ?>
         <?php wp_footer(); ?>

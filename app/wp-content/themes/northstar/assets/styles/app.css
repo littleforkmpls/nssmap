@@ -262,15 +262,40 @@ a:active {
 .footer__note {
     text-align: center;
     font-size: var(--fontSize-xs);
+    margin-bottom: 20px;
 }
 
 .footer__note span {
     display: inline;
 }
 
+.footer__links {
+    text-align: center;
+    font-size: var(--fontSize-xs);
+}
+
+.footer__links a {
+    transition: color 120ms linear;
+}
+
+.footer__links a:hover,
+.footer__links a:focus {
+    color: var(--color-brand-crimson);
+}
+
 @media (min-width: 640px) {
     .footer__note {
         text-align: initial;
+        margin-bottom: 15px;
+    }
+
+    .footer__links {
+        text-align: initial;
+    }
+
+    .footer__links__list > li {
+        display: inline-block;
+        padding-right: 20px;
     }
 }
 
