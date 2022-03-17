@@ -383,8 +383,8 @@ a:active {
     border-radius: 5px;
     border: 1px solid var(--color-gray);
     background-color: var(--color-white);
-    box-shadow: 3px 5px 8px 0px rgba(0,0,0,0.2);
-    transition: transform 80ms ease-in-out;
+    box-shadow: 3px 5px 8px 0px rgba(0,0,0,0.15);
+    transition: transform 100ms ease-in-out, box-shadow 100ms ease-in-out;
     will-change: transform;
 }
 
@@ -397,7 +397,8 @@ a:active {
 }
 
 .card:hover {
-    transform: scale(1.05);
+    transform: scale(1.03);
+    box-shadow: 3px 5px 15px 0px rgba(0,0,0,0.1);
 }
 
 /* ---------------------------------------------------------------------
@@ -476,6 +477,12 @@ a:active {
 
 .logoList__item img {
     display: block;
+    transition: transform 100ms ease-in-out;
+}
+
+.logoList__item a:hover img,
+.logoList__item a:focus img {
+    transform: scale(1.08);
 }
 
 @media (min-width: 640px) {
