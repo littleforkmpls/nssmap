@@ -98,6 +98,7 @@ template {
     --fontSize-md: 18px;
     --fontSize-lg: 21px;
     --fontSize-xl: 24px;
+    --fontSize-xxl: 32px;
     --lineHeight-one: 1;
     --lineHeight-std: 1.5;
 }
@@ -662,3 +663,391 @@ a:active {
 .infobox__content__media {
     margin-bottom: 5px;
 }
+
+/* ---------------------------------------------------------------------
+ User Content
+ quarantine.css | MIT License | github.com/apticknor/quarantine.css
+
+ Handle area of unknown content
+------------------------------------------------------------------------ */
+
+/* Always clear unknown content as it may contain a float */
+.userContent:before,
+.userContent:after {
+    content: " ";
+    display: table;
+}
+
+.userContent:after {
+    clear: both;
+}
+
+/* Baseline */
+.userContent {
+    color: var(--color-brand-shadow);
+    font-family: var(--fontFamily-sans);
+    font-weight: normal;
+    font-synthesis: initial;
+    font-size: var(--fontSize-md);
+    line-height: var(--lineHeight-std);
+    -ms-word-wrap: break-word;
+        word-wrap: break-word;
+}
+
+.userContent > *:first-child {
+    margin-top: 0 !important;
+}
+
+.userContent > *:last-child {
+    margin-bottom: 0 !important;
+}
+
+/* Embedded Content & Media */
+.userContent img,
+.userContent iframe,
+.userContent embed,
+.userContent object,
+.userContent video,
+.userContent audio,
+.userContent canvas,
+.userContent picture {
+    max-width: 100% !important;
+}
+
+.userContent > img,
+.userContent > iframe,
+.userContent > embed,
+.userContent > object,
+.userContent > video,
+.userContent > audio,
+.userContent > canvas,
+.userContent > picture {
+    display: inline-block;
+    margin-bottom: 1rem;
+}
+
+/* Anchors */
+.userContent a:link {
+    color: var(--color-brand-shadow);
+    text-decoration: underline;
+}
+
+.userContent a:visited {
+
+}
+
+.userContent a:focus,
+.userContent a:hover {
+    color: var(--color-brand-crimson);
+    text-decoration: underline;
+}
+
+.userContent a:active {
+
+}
+
+/* Paragraphs */
+.userContent p {
+    margin-bottom: var(--fontSize-md);
+}
+
+/* Headings */
+.userContent h1,
+.userContent h2,
+.userContent h3,
+.userContent h4,
+.userContent h5,
+.userContent h6 {
+    margin-top: 1.7rem;
+    margin-bottom: 1rem;
+    font-family: inherit;
+    font-weight: bold;
+    line-height: 1.2;
+}
+
+.userContent h1 {
+    font-size: var(--fontSize-xxl);
+}
+
+.userContent h2 {
+    font-size: var(--fontSize-xl);
+}
+
+.userContent h3 {
+    font-size: var(--fontSize-lg);
+}
+
+.userContent h4,
+.userContent h5,
+.userContent h6 {
+    font-size: var(--fontSize-md);
+}
+
+.userContent h1 a,
+.userContent h2 a,
+.userContent h3 a,
+.userContent h4 a,
+.userContent h5 a,
+.userContent h6 a {
+    color: inherit !important;
+}
+
+/* Blockquote */
+.userContent blockquote {
+    box-sizing: border-box;
+    margin-top: 1.7rem;
+    margin-bottom: 1.7rem;
+    border-left: 5px solid;
+    padding: 1rem 2rem;
+    font-family: var(--fontFamily-serif);
+    font-size: var(--font-size-lg);
+    font-style: italic;
+}
+
+.userContent blockquote > *:last-child {
+    margin-bottom: 0;
+}
+
+/* Address */
+.userContent address {
+    margin-bottom: 1rem;
+    font-style: italic;
+}
+
+/* Horizontal Rule */
+.userContent hr {
+    margin-top: 1.7rem;
+    margin-bottom: 1.7rem;
+    height: 1px;
+    border: none;
+    background: var(--color-brand-shadow);
+    color: var(--color-brand-shadow);
+    line-height: 1px;
+    font-size: 1px;
+}
+
+/* Inline Text */
+.userContent strong,
+.userContent b {
+    font-weight: bold;
+}
+
+.userContent em,
+.userContent i {
+    font-style: italic;
+}
+
+.userContent del,
+.userContent strike,
+.userContent s {
+    text-decoration: line-through;
+}
+
+.userContent u,
+.userContent ins {
+    text-decoration: underline;
+}
+
+.userContent sup {
+    vertical-align: super;
+    font-size: smaller;
+}
+
+.userContent sub {
+    vertical-align: sub;
+    font-size: smaller;
+}
+
+.userContent big {
+    font-size: larger;
+}
+
+.userContent small {
+    font-size: smaller;
+}
+
+.userContent abbr,
+.userContent acronym {
+    border-bottom: 1px dotted;
+    text-decoration: none;
+}
+
+.userContent cite,
+.userContent dfn {
+    font-style: italic;
+}
+
+.userContent q {
+    font-style: italic;
+}
+
+.userContent q::before {
+    content: open-quote;
+}
+
+.userContent q::after {
+    content: close-quote;
+}
+
+.userContent q:lang(en) {
+    quotes: "\201C" "\201D" "\2018" "\2019";
+}
+
+.userContent bdo,
+.userContent bdi {
+    direction: rtl;
+}
+
+.userContent blink {
+    text-decoration: blink;
+}
+
+/* Lists */
+.userContent ul,
+.userContent ol,
+.userContent dl {
+    margin-bottom: 1rem;
+}
+
+.userContent ul {
+    list-style-type: disc;
+}
+
+.userContent ol {
+    list-style-type: decimal;
+}
+
+.userContent dt {
+    font-weight: bold;
+}
+
+.userContent li,
+.userContent dd {
+    margin-left: 1.7rem;
+}
+
+/* 2 */
+.userContent ul ul,
+.userContent ul ol,
+.userContent ul dl,
+.userContent ol ul,
+.userContent ol ol,
+.userContent ol dl,
+.userContent dl ul,
+.userContent dl ol,
+.userContent dl dl {
+    margin-bottom: 0;
+}
+
+/* 3 */
+.userContent ol ul,
+.userContent ul ul {
+    list-style-type: circle;
+}
+
+/* 4 */
+.userContent ol ol ul,
+.userContent ol ul ul,
+.userContent ul ol ul,
+.userContent ul ul ul {
+    list-style-type: square;
+}
+
+
+/* Tables */
+.userContent table {
+    width: 100% !important;
+    margin-bottom: 1.7rem;
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+
+.userContent caption {
+    font-size: smaller;
+    padding: 10px 12px;
+    text-align: center;
+}
+
+.userContent tr {
+    vertical-align: middle;
+}
+
+.userContent tbody {
+    vertical-align: middle;
+}
+
+.userContent thead {
+    vertical-align: middle;
+}
+
+.userContent tfoot {
+    vertical-align: middle;
+}
+
+.userContent td {
+    vertical-align: inherit;
+    text-align: left;
+    padding: 4px 12px;
+    border: 1px solid var(--color-brand-shadow);
+}
+
+.userContent th {
+    vertical-align: inherit;
+    text-align: left;
+    font-weight: bold;
+    padding: 8px 12px;
+    border: 1px solid var(--color-brand-shadow);
+    background-color: transparent;
+}
+
+/* Computer Output */
+.userContent pre {
+    margin-top: 1.7rem;
+    margin-bottom: 1.7rem;
+    padding: 2rem;
+    border: 1px solid var(--color-brand-shadow);
+    background-color: var(--color-white);
+    font-family: "Lucida Console", Monaco, monospace;
+    font-size: var(--fontSize-sm);
+    border-radius: 2px;
+    white-space: pre-wrap;
+    word-break: break-all;
+}
+
+.userContent code {
+    display: inline-block;
+    padding: 2px 6px;
+    border: 1px solid var(--color-brand-shadow);
+    background-color: var(--color-white);
+    color: var(--color-brand-shadow);
+    font-size: var(--fontSize-sm);
+    border-radius: 2px;
+}
+
+.userContent pre code {
+    display: block;
+    padding: 0;
+    background-color: transparent;
+    border: none;
+    font-size: inherit;
+    color: inherit;
+    border-radius: 0;
+}
+
+.userContent code,
+.userContent samp,
+.userContent tt,
+.userContent kbd,
+.userContent var {
+    font-family: "Lucida Console", Monaco, monospace;
+}
+
+.userContent var {
+    font-style: italic;
+}
+
+
+
+
+
+
