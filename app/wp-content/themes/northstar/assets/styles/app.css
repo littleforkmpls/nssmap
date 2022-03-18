@@ -730,6 +730,7 @@ a:active {
 .userContent a:link {
     color: var(--color-brand-shadow);
     text-decoration: underline;
+    transition: color 120ms linear;
 }
 
 .userContent a:visited {
