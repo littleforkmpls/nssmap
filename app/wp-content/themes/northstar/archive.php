@@ -1,4 +1,4 @@
-<?php // 404 ERROR PAGE ?>
+<?php // ARCHIVE PAGE ?>
 
 <?php get_header(); ?>
 <div class="main" role="main">
