@@ -12,7 +12,7 @@
                     }
 
                 ?>
-                <img class="d-block" width="400" height="400" src="<?php echo $img_post; ?>?" alt="<?php echo $imgAlt_post; ?>" />
+                <img class="d-block" width="400" height="400" src="<?php echo $img_post; ?>" alt="<?php echo $imgAlt_post; ?>" />
             </div>
             <div class="card__title">
                 <h3 class="txt txt--hdg5 txt--upper txt--bold txt--truncated"><?php the_title(); ?></h3>
