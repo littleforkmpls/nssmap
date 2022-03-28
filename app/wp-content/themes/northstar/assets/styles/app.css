@@ -521,8 +521,10 @@ a:active {
 
 /* ---------------------------------------------------------------------
  Forms - Button
+ - .gform_button added for gravity forms
 ------------------------------------------------------------------------ */
-.btn {
+.btn,
+.gform_button {
     display: inline-block;
     margin: 0;
     border: 0;
@@ -546,7 +548,8 @@ a:active {
     width: 140px;
 }
 
-.btn:hover {
+.btn:hover,
+.gform_button:hover {
     background-color: var(--color-brand-crimson-hover);
 }
 
