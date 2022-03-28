@@ -539,6 +539,7 @@ a:active {
     font-weight: 600;
     text-align: center;
     text-transform: uppercase;
+    cursor: pointer;
     transition: all 80ms ease-in-out;
 }
 
