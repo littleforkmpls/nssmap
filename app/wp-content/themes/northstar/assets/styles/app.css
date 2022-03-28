@@ -524,6 +524,8 @@ a:active {
 ------------------------------------------------------------------------ */
 .btn {
     display: inline-block;
+    margin: 0;
+    border: 0;
     padding: 15px 20px;
     border-radius: 3px;
     box-shadow: 1px 3px 5px 0px rgba(0,0,0,0.2);
@@ -1047,7 +1049,12 @@ a:active {
     font-style: italic;
 }
 
-
+/* ---------------------------------------------------------------------
+ Override - Gravity Forms
+------------------------------------------------------------------------ */
+.gform_title {
+    display: none !important;
+}
 
 
 
