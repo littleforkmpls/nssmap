@@ -4,7 +4,7 @@ North Star Story Map is a WordPress site developed for AIA Minnesota as a way to
 
 ## Tech Notes
 
-* Originally built on WordPress 5.8.3
+* Originally built on WordPress 5.9.2
 * Uses a custom built theme
 * Hosted on WPEngine
 
