@@ -42,6 +42,10 @@ class NSSM_Story_Sync_Plugin_Admin {
 
     // render the admin page
     public function get_admin_page() {
-        echo '<div class="wrap"><h1>Hello World</h1></div>';
+        ob_start();
+        require_once $this->plugin_dir_path . 'admin/partials/main.php';
+        $start_page = ob_get_contents();
+        ob_end_clean();
+        echo $start_page;
     }
 }
