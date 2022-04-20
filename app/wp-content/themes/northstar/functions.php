@@ -69,6 +69,13 @@ add_action('wp_print_styles', function (): void {
 ==================================================================================================== */
 add_filter('use_block_editor_for_post', '__return_false', 10);
 
+add_filter('rest_authentication_errors', function ($access) {
+    if (!current_user_can('administrator')) {
+        return new WP_Error('rest_cannot_access', 'Only authenticated users can access the REST API.', ['status' => rest_authorization_required_code()]);
+    }
+    return $access;
+});
+
 add_filter('xmlrpc_enabled', function (): bool {
     return false;
 });
