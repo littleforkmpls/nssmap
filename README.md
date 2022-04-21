@@ -51,28 +51,26 @@ author_13plus           :: field_0pWPOTkeJ4ou
 author_firstname        :: field_cCtnKNF62tdD
 author_lastname         :: field_TkcWAwJKtA0t
 author_email            :: field_R5tkVz3rTzyV
-author_location         :: field_YyAwGwFFhcv9
+author_community        :: field_YyAwGwFFhcv9
 author_age              :: field_JsiJT53nZ7hA
-author_race             :: field_QXNwuNPOl9Au
+author_race_ethnicity   :: field_QXNwuNPOl9Au
 author_gender           :: field_siMgqnMbaPOD
 author_comments         :: field_vzq9hhEpRtB5
 
 title                   :: field_9k5fYUBAnLyl
-story                   :: field_ONGanBAnwVcb
+story_content           :: field_ONGanBAnwVcb
 tags                    :: field_kiRUTvgxRGEU
-city                    :: field_LwSMnEdjg3lo
-state                   :: Hardcoded as "MN"
-address                 :: field_25LtGwnYl9m9
-zip_code                :: field_NHUKT3EzpMEQ
-private_residence       :: field_Xpby4jkXPJGo
-exist                   :: field_veG6QCVqbLQm
+story_city              :: field_LwSMnEdjg3lo
+story_state             :: Hardcoded as "MN"
+story_address           :: field_25LtGwnYl9m9
+story_zip               :: field_NHUKT3EzpMEQ
+story_private_residence :: field_Xpby4jkXPJGo
+story_still_exist       :: field_veG6QCVqbLQm
 Images?                 :: field_PCT92ywkggUp
 image1                  :: field_J429I5JhdsSq _file
 image2                  :: field_L3iAUQOe99tJ _file
 image3                  :: field_jx7RU0owx19W _file
 image4                  :: field_fdbfK7ViCL5Q _file
 image5                  :: field_3yp6J4Xx3ABe _file
-video_url               :: field_OFcWqPxkaqqr
-audio_url               :: field_fDvLg5uTIcol
-
-https://api.typeform.com/download/1541840e6e99bb0327b96c59988ae1e0
+story_video_url               :: field_OFcWqPxkaqqr
+story_audio_url               :: field_fDvLg5uTIcol
