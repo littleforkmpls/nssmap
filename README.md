@@ -44,6 +44,8 @@ Access to the TypeForm API uses a personal token which can be modified via the W
 
 ## Field Mapping
 
+wordpress :: typeform
+
 response_id - readonly  :: id
 respone_time - readonly :: submitted_at
 
@@ -72,5 +74,5 @@ image2                  :: field_L3iAUQOe99tJ _file
 image3                  :: field_jx7RU0owx19W _file
 image4                  :: field_fdbfK7ViCL5Q _file
 image5                  :: field_3yp6J4Xx3ABe _file
-story_video_url               :: field_OFcWqPxkaqqr
-story_audio_url               :: field_fDvLg5uTIcol
+story_video_url         :: field_OFcWqPxkaqqr
+story_audio_url         :: field_fDvLg5uTIcol
