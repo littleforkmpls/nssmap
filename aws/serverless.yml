@@ -1,0 +1,17 @@
+service: nssmap-aws
+
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+  deploymentMethod: direct
+
+functions:
+  tf-wp-connector:
+    handler: index.tf-wp-connector
+    description: Webhook called by Typeform to copy entries into WordPress
+    events:
+      - httpApi:
+          method: POST
+          path: /

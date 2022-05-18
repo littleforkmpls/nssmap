@@ -1,0 +1,16 @@
+{
+  "name": "nssmap-aws-connector",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "connector-deploy": "serverless deploy function --function tf-wp-connector",
+    "connector-logs": "serverless logs --function tf-wp-connector --tail",
+    "deploy": "serverless deploy"
+  },
+  "author": "Little Fork, LLC",
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "serverless": "3.17.0"
+  }
+}
