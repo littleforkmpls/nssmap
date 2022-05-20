@@ -11,6 +11,8 @@ class HttpError extends Error {
   }
 }
 
+module.exports.HttpError = HttpError;
+
 module.exports.HttpBadRequest = class extends HttpError {
   constructor (msg = 'Bad Request', code) {
     super(msg, 400, code);
