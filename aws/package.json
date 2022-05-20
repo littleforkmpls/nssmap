@@ -7,10 +7,17 @@
     "deploy": "./scripts/deploy-connector.sh",
     "logs": "./scripts/logs-connector.sh",
     "logs:tail": "./scripts/logs-connector.sh --tail",
+    "test": "./scripts/test.sh",
+    "test:watch": "./scripts/test.sh --watch --watch-files ./lib"
   },
   "author": "Little Fork, LLC",
   "license": "UNLICENSED",
   "devDependencies": {
+    "chai": "4.3.6",
+    "mocha": "10.0.0",
     "serverless": "3.17.0"
+  },
+  "dependencies": {
+    "node-fetch": "2.6.7"
   }
 }
