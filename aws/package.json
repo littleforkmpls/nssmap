@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "connector-deploy": "serverless deploy function --function tf-wp-connector",
-    "connector-logs": "serverless logs --function tf-wp-connector --tail",
-    "deploy": "serverless deploy"
+    "deploy": "./scripts/deploy-connector.sh",
+    "logs": "./scripts/logs-connector.sh",
+    "logs:tail": "./scripts/logs-connector.sh --tail",
   },
   "author": "Little Fork, LLC",
   "license": "UNLICENSED",
