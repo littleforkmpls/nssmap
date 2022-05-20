@@ -16,6 +16,7 @@ An AWS Lambda that is called by a Typeform webhook to copy entries into WordPres
 #### Requirements
 
 * `n` (https://www.npmjs.com/package/n)
+* `direnv` (https://direnv.net/)
 
 #### Local Development
 
@@ -23,6 +24,13 @@ From the `/aws` folder:
 
 1. `n auto`
 2. `npm install`
+3. `cp .env.default .env` (you will see a direnv error)
+4. Add service credentials to `.env`
+5. `direnv allow`
+
+#### Testing
+
+1. `npm run test:watch`
 
 #### Deployment
 
