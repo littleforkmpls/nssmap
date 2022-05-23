@@ -31,6 +31,24 @@ const dedupeSlashes = module.exports.dedupeSlashes = function(str) {
 }
 
 /**
+ * Return the filename portion of an absolute URL.
+ *
+ * @example
+ * getFilename('https://example.com/foo/bar/baz.png?w=100&h=100');
+ * // 'baz.png'
+ *
+ * @param {string} str
+ * @type {string|null}
+ */
+const getFilename = module.exports.getFilename = function(str) {
+  try {
+    return (new URL(str)).pathname.split('/').pop();
+  } catch(e) {
+    return null;
+  }
+}
+
+/**
  * Join a series of strings together to make a valid absolute URL.
  * Returns null if absolute URL cannot be made.
  *
