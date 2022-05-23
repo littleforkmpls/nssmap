@@ -2,16 +2,16 @@
  * @typedef TypeformWebhookPayload
  * @property {string} event_id
  * @property {string} event_type
- * @property {TypeformFormResponse} form_response
+ * @property {TypeformWebHookFormResponse} form_response
  */
 
 /**
- * @typedef TypeformFormResponse
+ * @typedef TypeformWebHookFormResponse
  * @property {string} form_id
  * @property {string} token
  * @property {string} submitted_at
  * @property {string} landed_at
- * @property {score: number} calculated
+ * @property {{score: number}} calculated
  * @property {TypeformVariable[]} variables
  * @property {TypeformDefinition} definition
  * @property {TypeformAnswer[]} answers
@@ -25,46 +25,7 @@
  * @property {string} text
  */
 
-/**
- * @typedef TypeformDefinition
- * @property {string} id
- * @property {string} title
- * @property {TypeformDefinitionField} fields
- */
-
-/**
- * @typedef TypeformDefinitionField
- * @property {string} id
- * @property {string} title
- * @property {string} type
- * @property {string} ref
- * @property {boolean} allow_multiple_selections
- * @property {boolean} allow_other_choice
- */
-
-/**
- * @typedef TypeformAnswer
- * @property {"boolean"|"choice"|"choices"|"email"|"file_url"|"number"|"text"|"url"} type
- * @property {string} text
- * @property {TypeformAnswerField} field
- * @property {TypeformAnswerChoice} choice
- */
-
-/**
- * @typedef TypeformAnswerChoice
- * @property {string} id
- * @property {string} ref
- * @property {string} label
- */
-
-/**
- * @typedef TypeformAnswerField
- * @property {string} id
- * @property {string} ref
- * @property {string} type
- */
-
-const Example_TypeformPayload = {
+const Example_TypeformWebhookPayload = {
   "event_id": "LtWXD3crgy",
   "event_type": "form_response",
   "form_response": {
