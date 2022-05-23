@@ -2,21 +2,6 @@ const fetch = require('node-fetch');
 const { HttpError } = require('../utils/errors');
 const { buildQueryString, urlJoin } = require('../utils/url');
 
-/**
- * @typedef WordPressCreds
- * @property {string} username
- * @property {string} password
- */
-
-/**
- * @typedef WordPressFetchOpts
- * @property {string} path
- * @property {any} [body]
- * @property {WordPressCreds} [creds]
- * @property {string} [method]
- * @property {Record<string,any>} [query]
- */
-
 module.exports.WordPress = class WordPress {
 
   /**
@@ -42,18 +27,22 @@ module.exports.WordPress = class WordPress {
   // ******************************************************
 
   /**
+   * @typedef  WordPressGetPostOpts
+   * @property {string|number} itemId
+   * @property {WordPressCreds} creds
+   * @property {Record<string,any>} [query]
+   */
+
+  /**
    *
    * @param {string} siteUrl
-   * @param {number|string} itemId
-   * @param {WordPressGetPostsOpts} opts
+   * @param {WordPressGetPostOpts} opts
    * @returns {Promise<any[]>}
    */
-  static async getPost(siteUrl, itemId, {creds, query}) {
+  static async getPost(siteUrl, {itemId, creds, query}) {
     try {
-      return await WordPress.request(siteUrl, {
-        creds, query,
-        path: `/wp/v2/posts/${itemId}`
-      });
+      const path = `/wp/v2/posts/${itemId}`;
+      return await WordPress.request(siteUrl, {creds, path, query});
     } catch(e) {
       return null;
     }
@@ -75,9 +64,8 @@ module.exports.WordPress = class WordPress {
    */
   static async getPosts(siteUrl, {creds, query}) {
     try {
-      return await WordPress.request(siteUrl, {
-        creds, query, path: '/wp/v2/posts'
-      });
+      const path = '/wp/v2/posts';
+      return await WordPress.request(siteUrl, {creds, path, query});
     } catch(e) {
       return [];
     }
@@ -88,14 +76,29 @@ module.exports.WordPress = class WordPress {
   // **************************************************************************
 
   /**
+   * @typedef WordPressRequestOpts
+   * @property {string} path
+   * @property {any} [body]
+   * @property {WordPressCreds} [creds]
+   * @property {string} [method]
+   * @property {Record<string,any>} [query]
+   */
+
+  /**
+   * @typedef WordPressCreds
+   * @property {string} username
+   * @property {string} password
+   */
+
+  /**
    *
    * @param {string} siteUrl
-   * @param {WordPressFetchOpts} opts
+   * @param {WordPressRequestOpts} opts
    * @private
    */
   static async request(siteUrl, opts = {}) {
 
-    const { creds, method = 'GET', path, body, query } = opts;
+    const { method = 'GET', creds, path, body, query } = opts;
 
     let url = urlJoin(siteUrl, 'wp-json', path);
     if (query) url += buildQueryString(query);

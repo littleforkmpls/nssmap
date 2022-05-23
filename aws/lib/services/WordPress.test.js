@@ -28,13 +28,13 @@ describe('services/WordPress.js', () => {
   describe('getPost()', () => {
 
     it('should return null if post not found', async () => {
-      const result = await WordPress.getPost(siteUrl, 1, {creds});
+      const result = await WordPress.getPost(siteUrl, {itemId: 1, creds});
       await expect(result).to.be.null;
     });
 
     it('should return object if post is found', async () => {
       const itemId = 20; // may need to change this to a valid ID
-      const result = await WordPress.getPost(siteUrl, itemId, {creds});
+      const result = await WordPress.getPost(siteUrl, {itemId, creds});
       await expect(result).to.be.an('object').with.property('id', itemId);
       // console.log(result);
     });
