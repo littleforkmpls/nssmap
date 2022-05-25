@@ -4,10 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "deploy": "./scripts/deploy-connector.sh",
-    "logs": "./scripts/logs-connector.sh",
-    "logs:tail": "./scripts/logs-connector.sh --tail",
-    "test": "./scripts/test.sh",
+    "connector-deploy": "./scripts/deploy-connector.sh",
+    "connector-logs": "./scripts/logs-connector.sh",
+    "connector-logs:tail": "./scripts/logs-connector.sh --tail",
+    "test:once": "./scripts/test.sh",
     "test:watch": "./scripts/test.sh --watch --watch-files ./lib"
   },
   "author": "Little Fork, LLC",
@@ -18,6 +18,10 @@
     "serverless": "3.17.0"
   },
   "dependencies": {
+    "@aws-sdk/client-s3": "3.95.0",
+    "@aws-sdk/credential-provider-ini": "3.95.0",
+    "@aws-sdk/lib-storage": "3.97.0",
+    "mime-types": "2.1.35",
     "node-fetch": "2.6.7"
   }
 }
