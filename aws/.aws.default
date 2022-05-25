@@ -1,0 +1,7 @@
+[nssmap-serverless-cli]
+aws_access_key_id=
+aws_secret_access_key=
+
+[nssmap-tf-wp-connector]
+aws_access_key_id=
+aws_secret_access_key=

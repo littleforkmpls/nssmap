@@ -1,5 +1,6 @@
 #!/bin/sh
 
+AWS_SHARED_CREDENTIALS_FILE=.aws \
 npx mocha \
   --bail \
   --exit \
