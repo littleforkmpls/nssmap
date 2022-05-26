@@ -6,6 +6,41 @@ const { buildQueryString, urlJoin } = require('../utils/url');
 module.exports.Typeform = class Typeform {
 
   /**
+   *
+   * @param {TypeformAnswer} answer
+   * @returns {boolean|string|number|Record<string,string>}
+   */
+  static getAnswerValue(answer) {
+    switch (answer.type) {
+      case 'boolean':
+        return answer.boolean;
+      case 'choice':
+        return {[answer.choice.id]: answer.choice.label};
+      case 'choices':
+        return answer.choices.ids.reduce((map, id, i) => {
+          map[id] = (id === 'other')
+            ? answer.choices.other
+            : answer.choices.labels[i];
+          return map;
+        }, {});
+      case 'email':
+        return answer.email;
+      case 'file_url':
+        return answer.file_url;
+      case 'number':
+        return answer.number;
+      case 'text':
+      case 'short_text':
+      case 'long_text':
+        return answer.text;
+      case 'url':
+        return answer.url;
+    }
+  }
+
+  // ******************************************************
+
+  /**
    * @typedef TypeformGetResponsesOpts
    * @property {string} formId
    * @property {string} token

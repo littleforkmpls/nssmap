@@ -35,6 +35,7 @@ describe('services/Typeform.js', () => {
       const result = await Typeform.getResponses(apiUrl, {formId, token});
       await expect(result).to.be.an('array').that.is.not.empty;
       await expect(result[0]).to.be.an('object').with.property('response_id');
+      // console.log(result);
     });
 
   });
@@ -65,7 +66,7 @@ describe('services/Typeform.js', () => {
       });
 
       it.skip('should be an image', async () => {
-        // Download image into the local folder, manually verify it's valid
+        // Download image into the local folder to manually verify it's valid
         const result = await Typeform.getFileContents(fileUrl, {token});
         const filename = getFilename(fileUrl);
         fs.writeFileSync(filename, result);
@@ -82,7 +83,7 @@ describe('services/Typeform.js', () => {
       });
 
       it.skip('should be an image', async () => {
-        // Stream image into the local folder, manually verify it's valid
+        // Stream image into the local folder to manually verify it's valid
         const result = await Typeform.getFileStream(fileUrl, {token});
         const filename = getFilename(fileUrl);
         const write = fs.createWriteStream(filename);
