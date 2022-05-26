@@ -70,6 +70,7 @@ const Example_AwsLambdaHttpApiEvent = {
     "x-forwarded-port": "443",
     "x-forwarded-proto": "https"
   },
+  "body": "{\"ok\":true}",
   "requestContext": {
     "accountId": "099230886305",
     "apiId": "bvtw2catj1",

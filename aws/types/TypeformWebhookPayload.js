@@ -25,253 +25,261 @@
  * @property {string} text
  */
 
-const Example_TypeformWebhookPayload = {
+module.exports.Example_TypeformWebhookPayload = {
   "event_id": "LtWXD3crgy",
   "event_type": "form_response",
   "form_response": {
-    "form_id": "lT4Z3j",
+    "form_id": "test",
     "token": "a3a12ec67a1365927098a606107fac15",
     "submitted_at": "2018-01-18T18:17:02Z",
     "landed_at": "2018-01-18T18:07:02Z",
     "calculated": {
-      "score": 9
+      "score": 0
     },
-    "variables": [
-      {
-        "key": "score",
-        "type": "number",
-        "number": 4
-      },
-      {
-        "key": "name",
-        "type": "text",
-        "text": "typeform"
-      }
-    ],
-    "hidden":{
-      "user_id": "abc123456"
-    },
-    "definition": {
-      "id": "lT4Z3j",
-      "title": "Webhooks example",
-      "fields": [
-        {
-          "id": "DlXFaesGBpoF",
-          "title": "Thanks, {{answer_60906475}}! What's it like where you live? Tell us in a few sentences.",
-          "type": "long_text",
-          "ref": "[readable_ref_long_text",
-          "allow_multiple_selections": false,
-          "allow_other_choice": false
-        },
-        {
-          "id": "SMEUb7VJz92Q",
-          "title": "If you're OK with our city management following up if they have further questions, please give us your email address.",
-          "type": "email",
-          "ref": "readable_ref_email",
-          "allow_multiple_selections": false,
-          "allow_other_choice": false
-        },
-        {
-          "id": "JwWggjAKtOkA",
-          "title": "What is your first name?",
-          "type": "short_text",
-          "ref": "readable_ref_short_text",
-          "allow_multiple_selections": false,
-          "allow_other_choice": false
-        },
-        {
-          "id": "KoJxDM3c6x8h",
-          "title": "When did you move to the place where you live?",
-          "type": "date",
-          "ref": "readable_ref_date",
-          "allow_multiple_selections": false,
-          "allow_other_choice": false
-        },
-        {
-          "id": "PNe8ZKBK8C2Q",
-          "title": "Which pictures do you like? You can choose as many as you like.",
-          "type": "picture_choice",
-          "ref": "readable_ref_picture_choice",
-          "allow_multiple_selections": true,
-          "allow_other_choice": false
-        },
-        {
-          "id": "Q7M2XAwY04dW",
-          "title": "On a scale of 1 to 5, what rating would you give the weather in Sydney? 1 is poor weather, 5 is excellent weather",
-          "type": "number",
-          "ref": "readable_ref_number1",
-          "allow_multiple_selections": false,
-          "allow_other_choice": false
-        },
-        {
-          "id": "gFFf3xAkJKsr",
-          "title": "By submitting this form, you understand and accept that we will share your answers with city management. Your answers will be anonymous will not be shared.",
-          "type": "legal",
-          "ref": "readable_ref_legal",
-          "allow_multiple_selections": false,
-          "allow_other_choice": false
-        },
-        {
-          "id": "k6TP9oLGgHjl",
-          "title": "Which of these cities is your favorite?",
-          "type": "multiple_choice",
-          "ref": "readable_ref_multiple_choice",
-          "allow_multiple_selections": false,
-          "allow_other_choice": false
-        },
-        {
-          "id": "RUqkXSeXBXSd",
-          "title": "Do you have a favorite city we haven't listed?",
-          "type": "yes_no",
-          "ref": "readable_ref_yes_no",
-          "allow_multiple_selections": false,
-          "allow_other_choice": false
-        },
-        {
-          "id": "NRsxU591jIW9",
-          "title": "How important is the weather to your opinion about a city? 1 is not important, 5 is very important.",
-          "type": "opinion_scale",
-          "ref": "readable_ref_opinion_scale",
-          "allow_multiple_selections": false,
-          "allow_other_choice": false
-        },
-        {
-          "id": "WOTdC00F8A3h",
-          "title": "How would you rate the weather where you currently live? 1 is poor weather, 5 is excellent weather.",
-          "type": "rating",
-          "ref": "readable_ref_rating",
-          "allow_multiple_selections": false,
-          "allow_other_choice": false
-        },
-        {
-          "id": "pn48RmPazVdM",
-          "title": "On a scale of 1 to 5, what rating would you give the general quality of life in Sydney? 1 is poor, 5 is excellent",
-          "type": "number",
-          "ref": "readable_ref_number2",
-          "allow_multiple_selections": false,
-          "allow_other_choice": false
-        },
-        {
-          "id": "M5tXK5kG7IeA",
-          "title": "Book a time with me",
-          "type": "calendly",
-          "ref": "readable_ref_calendly",
-          "properties": {}
-        }
-      ]
-    },
+    "variables": [],
+    "hidden":{},
+    "definition": {},
     "answers": [
       {
-        "type": "text",
-        "text": "It's cold right now! I live in an older medium-sized city with a university. Geographically, the area is hilly.",
         "field": {
-          "id": "DlXFaesGBpoF",
-          "type": "long_text"
-        }
+          "id": "0pWPOTkeJ4ou",
+          "ref": "6ef88fc2-8e51-4f13-a9ac-750afa26b3f0",
+          "type": "yes_no"
+        },
+        "type": "boolean",
+        "boolean": true
       },
       {
-        "type": "email",
-        "email": "laura@example.com",
         "field": {
-          "id": "SMEUb7VJz92Q",
-          "type": "email"
-        }
-      },
-      {
-        "type": "text",
-        "text": "Laura",
-        "field": {
-          "id": "JwWggjAKtOkA",
+          "id": "9k5fYUBAnLyl",
+          "ref": "d07a0417-c7f7-497d-8897-5fc5f5734c3d",
           "type": "short_text"
-        }
+        },
+        "type": "text",
+        "text": "Gage Hall"
       },
       {
-        "type": "date",
-        "date": "2005-10-15",
         "field": {
-          "id": "KoJxDM3c6x8h",
-          "type": "date"
-        }
+          "id": "ONGanBAnwVcb",
+          "ref": "6639271f-8636-48f7-9a52-8df8120dad37",
+          "type": "long_text"
+        },
+        "type": "text",
+        "text": "Mankato State Dormitory when I attended college"
       },
       {
+        "field": {
+          "id": "kiRUTvgxRGEU",
+          "ref": "38e8595e-f788-447c-bc31-49e5beb47f9a",
+          "type": "multiple_choice"
+        },
         "type": "choices",
         "choices": {
+          "ids": [
+            "C370Hpszcfzl",
+            "other"
+          ],
+          "refs": [
+            "58e53dab-9190-46cc-87a2-819676304b43"
+          ],
           "labels": [
-            "London",
-            "Sydney"
-          ]
+            "School / College / University"
+          ],
+          "other": "Dorm"
+        }
+      },
+      {
+        "field": {
+          "id": "LwSMnEdjg3lo",
+          "ref": "46e4cd9c-8c4d-4b8b-a97f-8cffeac885b4",
+          "type": "short_text"
         },
-        "field": {
-          "id": "PNe8ZKBK8C2Q",
-          "type": "picture_choice"
-        }
+        "type": "text",
+        "text": "Mankato"
       },
       {
-        "type": "number",
-        "number": 5,
         "field": {
-          "id": "Q7M2XAwY04dW",
+          "id": "25LtGwnYl9m9",
+          "ref": "e1fe2e1d-d8fc-4789-9760-e3d65742a888",
+          "type": "short_text"
+        },
+        "type": "text",
+        "text": "?"
+      },
+      {
+        "field": {
+          "id": "NHUKT3EzpMEQ",
+          "ref": "dfafbf82-0beb-45ca-b91b-25408c3fd528",
           "type": "number"
-        }
+        },
+        "type": "number",
+        "number": 56001
       },
       {
-        "type": "boolean",
-        "boolean": true,
         "field": {
-          "id": "gFFf3xAkJKsr",
-          "type": "legal"
-        }
+          "id": "Xpby4jkXPJGo",
+          "ref": "ad167567-409c-4f1d-b75b-d9adb941a1c9",
+          "type": "yes_no"
+        },
+        "type": "boolean",
+        "boolean": false
       },
       {
+        "field": {
+          "id": "veG6QCVqbLQm",
+          "ref": "acc250c4-8a0c-4b4c-91aa-b26291699053",
+          "type": "yes_no"
+        },
+        "type": "boolean",
+        "boolean": false
+      },
+      {
+        "field": {
+          "id": "PCT92ywkggUp",
+          "ref": "ccf1dffb-fdaf-47e2-9659-aaebca258a24",
+          "type": "yes_no"
+        },
+        "type": "boolean",
+        "boolean": true
+      },
+      {
+        "field": {
+          "id": "J429I5JhdsSq",
+          "ref": "b2199c8e-d99b-4475-a220-1baae1ecd014",
+          "type": "file_upload"
+        },
+        "type": "file_url",
+        "file_url": "https://api.typeform.com/forms/Wudz4qvi/responses/7l1zu7f9s6otmjchqcqkyeg7l1zu7f97/fields/J429I5JhdsSq/files/1c2a9eddfb99-gage_hall_1.webp"
+      },
+      {
+        "field": {
+          "id": "L3iAUQOe99tJ",
+          "ref": "3980b178-aa40-4258-b2fe-94a2f4d034be",
+          "type": "file_upload"
+        },
+        "type": "file_url",
+        "file_url": "https://api.typeform.com/forms/Wudz4qvi/responses/7l1zu7f9s6otmjchqcqkyeg7l1zu7f97/fields/L3iAUQOe99tJ/files/0749513fe983-540557ef7d060.preview_620.jpg"
+      },
+      {
+        "field": {
+          "id": "jx7RU0owx19W",
+          "ref": "ea885ad4-7f01-4cb5-a28c-c02c4f5c81d7",
+          "type": "file_upload"
+        },
+        "type": "file_url",
+        "file_url": "https://api.typeform.com/forms/Wudz4qvi/responses/7l1zu7f9s6otmjchqcqkyeg7l1zu7f97/fields/jx7RU0owx19W/files/8c43ae1c9650-early_morning_Gage_view_from_FB_field.jpg"
+      },
+      {
+        "field": {
+          "id": "fdbfK7ViCL5Q",
+          "ref": "b1496311-3c5c-4d79-aff4-64f5aaea4fe4",
+          "type": "file_upload"
+        },
+        "type": "file_url",
+        "file_url": "https://api.typeform.com/forms/Wudz4qvi/responses/7l1zu7f9s6otmjchqcqkyeg7l1zu7f97/fields/fdbfK7ViCL5Q/files/73cc39122715-20130404__gage.webp"
+      },
+      {
+        "field": {
+          "id": "3yp6J4Xx3ABe",
+          "ref": "cea13f52-c247-4419-8132-3c7081355342",
+          "type": "file_upload"
+        },
+        "type": "file_url",
+        "file_url": "https://api.typeform.com/forms/Wudz4qvi/responses/7l1zu7f9s6otmjchqcqkyeg7l1zu7f97/fields/3yp6J4Xx3ABe/files/658b266c910c-MSU.jpg"
+      },
+      {
+        "field": {
+          "id": "OFcWqPxkaqqr",
+          "ref": "7c920e84-42c9-4e46-853e-6e5a17c473ff",
+          "type": "website"
+        },
+        "type": "url",
+        "url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+      },
+      {
+        "field": {
+          "id": "fDvLg5uTIcol",
+          "ref": "b365bb6e-9b89-4019-a609-165b8849c9b5",
+          "type": "website"
+        },
+        "type": "url",
+        "url": "https://www.youtube.com/watch?v=fbZljzV4Yfc"
+      },
+      {
+        "field": {
+          "id": "cCtnKNF62tdD",
+          "ref": "01FP8R28D7BXV30MRKD76VD6G8",
+          "type": "short_text"
+        },
+        "type": "text",
+        "text": "Tony"
+      },
+      {
+        "field": {
+          "id": "TkcWAwJKtA0t",
+          "ref": "4a1e3e43-f63c-4928-b9b3-4ed5407bf754",
+          "type": "short_text"
+        },
+        "type": "text",
+        "text": "Ticknor"
+      },
+      {
+        "field": {
+          "id": "R5tkVz3rTzyV",
+          "ref": "e153d8d1-c3a5-4ea4-8dc2-96a64978c0e3",
+          "type": "email"
+        },
+        "type": "email",
+        "email": "tony@little-fork.com"
+      },
+      {
+        "field": {
+          "id": "YyAwGwFFhcv9",
+          "ref": "57a24f4f-8598-4f92-96b1-8ff3c93af350",
+          "type": "short_text"
+        },
+        "type": "text",
+        "text": "Bloomington MN"
+      },
+      {
+        "field": {
+          "id": "JsiJT53nZ7hA",
+          "ref": "d67e61b7-2098-4493-b195-8ab3c4461f78",
+          "type": "multiple_choice"
+        },
         "type": "choice",
         "choice": {
-          "label": "London"
+          "id": "bMkShcIhUxRG",
+          "ref": "e94eba6a-026f-4a70-8125-a7e29cee3fab",
+          "label": "34-41"
+        }
+      },
+      {
+        "field": {
+          "id": "QXNwuNPOl9Au",
+          "ref": "6abdaa3e-addf-4a4d-b0ad-d7e2cc0b7832",
+          "type": "short_text"
         },
-        "field": {
-          "id": "k6TP9oLGgHjl",
-          "type": "multiple_choice"
-        }
+        "type": "text",
+        "text": "Caucasian"
       },
       {
-        "type": "boolean",
-        "boolean": false,
         "field": {
-          "id": "RUqkXSeXBXSd",
-          "type": "yes_no"
-        }
+          "id": "siMgqnMbaPOD",
+          "ref": "d56234ba-c019-4406-b9e2-a62000c03712",
+          "type": "short_text"
+        },
+        "type": "text",
+        "text": "Male"
       },
       {
-        "type": "number",
-        "number": 2,
         "field": {
-          "id": "NRsxU591jIW9",
-          "type": "opinion_scale"
-        }
-      },
-      {
-        "type": "number",
-        "number": 3,
-        "field": {
-          "id": "WOTdC00F8A3h",
-          "type": "rating"
-        }
-      },
-      {
-        "type": "number",
-        "number": 4,
-        "field": {
-          "id": "pn48RmPazVdM",
-          "type": "number"
-        }
-      },
-      {
-        "type": "url",
-        "url": "https://calendly.com/scheduled_events/EVENT_TYPE/invitees/INVITEE",
-        "field": {
-          "id": "M5tXK5kG7IeA",
-          "type": "calendly",
-          "ref": "readable_ref_calendly"
-        }
+          "id": "vzq9hhEpRtB5",
+          "ref": "2eb4f850-e78f-4b1b-9196-ca1140df7f3f",
+          "type": "long_text"
+        },
+        "type": "text",
+        "text": "Nothing else to share"
       }
     ]
   }
