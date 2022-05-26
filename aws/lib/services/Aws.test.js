@@ -13,7 +13,7 @@ describe('services/Aws.js', () => {
 
   describe('s3Upload()', () => {
 
-    const testfile = resolve(__dirname, '../../test/mocks/test.png');
+    const testfile = resolve(__dirname, '../../test/files/test.png');
 
     it.skip('should upload a file from a Buffer', async () => {
       // Write: will upload a test image to S3 bucket
