@@ -6,7 +6,7 @@
  */
 
 /**
- * @typedef NssmapFormResponsePostACF
+ * @typedef {{}} NssmapFormResponsePostACF
  * @property {string} author_13plus
  * @property {string} author_age
  * @property {string} author_comments
