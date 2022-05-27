@@ -59,7 +59,6 @@ Tests that mutate any remote data are skipped by default.
 
 1. `npm run test` OR `npm run test:watch`
 
-
 #### Logs
 
 You can view remote logs from your terminal.

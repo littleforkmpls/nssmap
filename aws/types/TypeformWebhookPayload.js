@@ -1,12 +1,12 @@
 /**
- * @typedef TypeformWebhookPayload
+ * @typedef {{}} TypeformWebhookPayload
  * @property {string} event_id
  * @property {string} event_type
  * @property {TypeformWebHookFormResponse} form_response
  */
 
 /**
- * @typedef TypeformWebHookFormResponse
+ * @typedef {{}} TypeformWebHookFormResponse
  * @property {string} form_id
  * @property {string} token
  * @property {string} submitted_at
@@ -18,7 +18,7 @@
  */
 
 /**
- * @typedef TypeformVariable
+ * @typedef {{}} TypeformVariable
  * @property {string} key
  * @property {"number"|"text"} type
  * @property {number} number

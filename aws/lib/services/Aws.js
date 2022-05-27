@@ -1,6 +1,5 @@
 const AwsS3 = require('@aws-sdk/client-s3');
 const AwsStorage = require('@aws-sdk/lib-storage');
-const AwsCreds = require('@aws-sdk/credential-provider-ini');
 const mime = require('mime-types');
 
 const Aws = module.exports.Aws = class {

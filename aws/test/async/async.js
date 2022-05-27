@@ -1,4 +1,13 @@
 /**
+ * Chai assertion that tests for thrown async errors.
+ *
+ * @example
+ * it('should throw an error', async () => {
+ *   await expect(async () => {
+ *     throw new Error('Foo');
+ *   }).to.async.throw('Foo');
+ * })
+ *
  *
  * @param {Chai.ChaiStatic} chai
  * @param {Chai.ChaiUtils} utils

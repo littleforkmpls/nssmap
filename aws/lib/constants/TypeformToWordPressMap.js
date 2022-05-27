@@ -2,9 +2,9 @@
 module.exports.TypeformToWordPressMap = {
   '9k5fYUBAnLyl': 'title',
   'kiRUTvgxRGEU': 'tags',
+  'R5tkVz3rTzyV': 'acf.author_email',
   'cCtnKNF62tdD': 'acf.author_firstname',
   'TkcWAwJKtA0t': 'acf.author_lastname',
-  'R5tkVz3rTzyV': 'acf.author_email',
   '25LtGwnYl9m9': 'acf.story_address',
   'fDvLg5uTIcol': 'acf.story_audio_url',
   'LwSMnEdjg3lo': 'acf.story_city',

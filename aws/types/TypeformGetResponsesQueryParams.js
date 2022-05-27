@@ -1,5 +1,5 @@
 /**
- * @typedef TypeformGetResponsesQueryParams
+ * @typedef {{}} TypeformGetResponsesQueryParams
  * @property {string}  [after]
  * @property {string}  [answered_fields]
  * @property {string}  [before]

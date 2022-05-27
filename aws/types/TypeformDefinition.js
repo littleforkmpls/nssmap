@@ -1,12 +1,12 @@
 /**
- * @typedef TypeformDefinition
+ * @typedef {{}} TypeformDefinition
  * @property {string} id
  * @property {string} title
  * @property {TypeformDefinitionField} fields
  */
 
 /**
- * @typedef TypeformDefinitionField
+ * @typedef {{}} TypeformDefinitionField
  * @property {string} id
  * @property {string} title
  * @property {string} type

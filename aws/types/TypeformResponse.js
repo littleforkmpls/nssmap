@@ -1,12 +1,12 @@
 /**
- * @typedef TypeformApiGetResponses
+ * @typedef {{}} TypeformApiGetResponses
  * @property {number} total_items
  * @property {number} page_count
  * @property {TypeformResponse[]} items
  */
 
 /**
- * @typedef TypeformResponse
+ * @typedef {{}} TypeformResponse
  * @property {string} landing_id
  * @property {string} token
  * @property {string} response_id

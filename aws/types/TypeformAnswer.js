@@ -1,5 +1,5 @@
 /**
- * @typedef TypeformAnswer
+ * @typedef {{}} TypeformAnswer
  * @property {"boolean"|"choice"|"choices"|"email"|"file_url"|"number"|"text"|"url"} type
  * @property {string} text
  * @property {TypeformAnswerField} field
@@ -13,14 +13,14 @@
  */
 
 /**
- * @typedef TypeformAnswerChoice
+ * @typedef {{}} TypeformAnswerChoice
  * @property {string} id
  * @property {string} ref
  * @property {string} label
  */
 
 /**
- * @typedef TypeformAnswerChoices
+ * @typedef {{}} TypeformAnswerChoices
  * @property {string[]} ids
  * @property {string[]} refs
  * @property {string[]} labels
@@ -28,7 +28,7 @@
  */
 
 /**
- * @typedef TypeformAnswerField
+ * @typedef {{}} TypeformAnswerField
  * @property {string} id
  * @property {string} ref
  * @property {string} type

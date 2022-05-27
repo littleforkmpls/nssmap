@@ -1,5 +1,5 @@
 /**
- * @typedef AwsLambdaHttpApiReturns
+ * @typedef {{}} AwsLambdaHttpApiReturns
  * @property {string} body
  * @property {number} statusCode
  */

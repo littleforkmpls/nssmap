@@ -13,7 +13,7 @@
  */
 
 /**
- * @typedef AwsLambdaHeaders
+ * @typedef {{}} AwsLambdaHeaders
  * @property {string} accept
  * @property {string} accept-encoding
  * @property {string} accept-language
@@ -28,7 +28,7 @@
  */
 
 /**
- * @typedef AwsLambdaRequestContext
+ * @typedef {{}} AwsLambdaRequestContext
  * @property {string} accountId
  * @property {string} apiId
  * @property {string} domainName
@@ -42,7 +42,7 @@
  */
 
 /**
- * @typedef AwsLambdaRequestHttp
+ * @typedef {{}} AwsLambdaRequestHttp
  * @property {string} method
  * @property {string} path
  * @property {string} protocol
@@ -52,7 +52,7 @@
 
 // ******************************************************
 
-const Example_AwsLambdaHttpApiEvent = {
+module.exports.Example_AwsLambdaHttpApiEvent = {
   "version": "2.0",
   "routeKey": "GET /",
   "rawPath": "/",
