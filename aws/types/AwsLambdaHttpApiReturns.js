@@ -1,4 +1,3 @@
-
 /**
  * @typedef AwsLambdaHttpApiReturns
  * @property {string} body

@@ -1,4 +1,3 @@
-
 /**
  * @typedef TypeformGetResponsesQueryParams
  * @property {string}  [after]

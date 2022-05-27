@@ -1,4 +1,3 @@
-
 /**
  * @typedef {{}} WordPressTag
  * @property {number} id

@@ -1,6 +1,6 @@
 # North Star Story Map - AWS Services
 
-This folder contains the `serverless` configuration for the NSSMap AWS services.
+This folder contains the source code and `serverless` config for the NSSMap AWS services.
 
 > * Serverless Docs: https://www.serverless.com/framework/docs
 > * Serverless Repo: https://github.com/serverless/serverless

@@ -1,4 +1,3 @@
-
 /**
  * @typedef TypeformApiGetResponses
  * @property {number} total_items

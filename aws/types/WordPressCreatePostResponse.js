@@ -1,4 +1,3 @@
-
 /**
  * @typedef {{}} WordPressCreatePostResponse
  * @property {number} id
