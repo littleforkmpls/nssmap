@@ -16,12 +16,21 @@ module.exports.Typeform = class Typeform {
       case 'choice':
         return {[answer.choice.id]: answer.choice.label};
       case 'choices':
-        return answer.choices.ids.reduce((map, id, i) => {
-          map[id] = (id === 'other')
-            ? answer.choices.other
-            : answer.choices.labels[i];
-          return map;
-        }, {});
+        if (Array.isArray(answer.choices.labels)) {
+          return answer.choices.labels.reduce((map, label, i) => {
+            map[i] = label;
+            return map;
+          }, {});
+        }
+        if (answer.choices.ids) {
+          return answer.choices.ids.reduce((map, id, i) => {
+            map[id] = (id === 'other')
+              ? answer.choices.other
+              : answer.choices.labels[i];
+            return map;
+          }, {});
+        }
+        return {};
       case 'email':
         return answer.email;
       case 'file_url':
