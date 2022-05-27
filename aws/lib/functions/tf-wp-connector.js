@@ -7,7 +7,10 @@ const { parseJson } = require('../utils/json');
 const { uid } = require('../utils/uid');
 const set = require('lodash.set');
 
-const { TypeformToWordPressMap } = require('../constants/TypeformToWordPressMap');
+const {
+  TypeformToWordPressMap,
+  TypeformToWordPressACFMap
+} = require('../constants/TypeformToWordPressMap');
 
 /**
  *
@@ -17,18 +20,31 @@ const { TypeformToWordPressMap } = require('../constants/TypeformToWordPressMap'
 module.exports.TfWpConnector = async (event) => {
   try {
 
-    const token   = process.env.TYPEFORM_TOKEN;
-    const bucket  = process.env.AWS_PUBLIC_BUCKET;
-    const region  = process.env.AWS_PUBLIC_BUCKET_REGION;
-    const profile = 'nssmap-tf-wp-connector';
+    const awsParams = {
+      bucket:  process.env.AWS_PUBLIC_BUCKET,
+      region:  process.env.AWS_PUBLIC_BUCKET_REGION,
+      profile: 'nssmap-tf-wp-connector'
+    };
+
+    const tfParams = {
+      token: process.env.TYPEFORM_TOKEN,
+    };
+
+    const wpParams = {
+      baseUrl: process.env.WORDPRESS_URL,
+      creds: {
+        username: process.env.WORDPRESS_USERNAME,
+        password: process.env.WORDPRESS_PASSWORD
+      }
+    };
 
     // ******************************************************
 
     /** @type {TypeformWebhookPayload} */
-    const body = parseJson(event.body);
-    if (!body) throw new HttpBadRequest('Body is not JSON string');
+    const payload = parseJson(event.body);
+    if (!payload) throw new HttpBadRequest('Payload is not JSON string');
 
-    const response = body?.form_response;
+    const response = payload?.form_response;
     if (!response) throw new HttpBadRequest('Body is missing form response');
     if (!response.answers) throw new HttpBadRequest('Body is missing response answers');
 
@@ -52,9 +68,8 @@ module.exports.TfWpConnector = async (event) => {
 
       const url = answer.file_url;
       const path = `${s3BasePath}/${getFilename(url)}`;
-      const body = await Typeform.getFileStream(url, {token});
-
-      const result = await Aws.s3Upload({bucket, path, profile, region, body});
+      const stream = await Typeform.getFileStream({...tfParams, fileUrl: url});
+      const result = await Aws.s3Upload({...awsParams, path, body: stream});
       publicUrls[answer.field.id] = result.Location;
     }
 
@@ -76,7 +91,7 @@ module.exports.TfWpConnector = async (event) => {
     // Map the Typeform answers to WordPress post fields.
 
     /** @type {NssmapFormResponsePost} */
-    const postBody = {
+    const body = {
       acf: {
         response_id:   response.token,
         response_time: response.submitted_at,
@@ -94,30 +109,39 @@ module.exports.TfWpConnector = async (event) => {
       if (!key) continue; // skip answers not in the map
 
       let value = Typeform.getAnswerValue(answer);
+
+      if (type === 'boolean')  value = value ? 'yes' : 'no';
       if (type === 'choices')  value = Object.values(value).join(',');
       if (type === 'file_url') value = publicUrls[id] || '';
 
-      set(postBody, key, value);
+      set(body, key, String(value));
     }
-
-    postBody.title = `TEST - ${uid(6)} - ${postBody.title}`;
-
-    console.log(postBody);
 
     // ******************************************************
 
-    // Create the post in WordPress
+    // Map tags from Typeform to the WordPress tag IDs.
 
-    const siteUrl  = process.env.WORDPRESS_URL;
-    const username = process.env.WORDPRESS_USERNAME;
-    const password = process.env.WORDPRESS_PASSWORD;
+    if (body.tags) {
 
-    /** @type {WordPressCreds} */
-    const creds = {username, password};
+      /** @type {WordPressTag[]} */
+      const wpTags = await WordPress.getTags({...wpParams});
 
-    const result = await WordPress.createPost(siteUrl, {creds, body: postBody});
+      /** @type {{}|Record<string,number>} */
+      const tagIdMap = wpTags.reduce((map, tag) => {
+        map[tag.name] = tag.id;
+        return map;
+      }, {});
 
-    console.log(result);
+      body.tags = body.tags.split(',').map(tagStr => {
+        return tagIdMap[tagStr] || tagIdMap['Other'];
+      }).filter(Boolean).join(',');
+    }
+
+    // ******************************************************
+
+    // Finally create the post in WordPress
+
+    const result = await WordPress.createPost({...wpParams, body});
 
     // ******************************************************
 
@@ -125,11 +149,11 @@ module.exports.TfWpConnector = async (event) => {
 
     return {
       statusCode: 200,
-      body: JSON.stringify({ok: true})
+      body: JSON.stringify({ok: true, id: result.id})
     };
 
   } catch(e) {
-    console.log(e);
+    if (!e.status) console.error(e);
     return {
       statusCode: e.status || 500,
       body: JSON.stringify({error: e})
