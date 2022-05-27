@@ -42,6 +42,7 @@ module.exports.Typeform = class Typeform {
 
   /**
    * @typedef TypeformGetResponsesOpts
+   * @property {string} baseUrl
    * @property {string} formId
    * @property {string} token
    * @property {TypeformGetResponsesQueryParams} [query]
@@ -49,14 +50,14 @@ module.exports.Typeform = class Typeform {
 
   /**
    *
-   * @param {string} apiUrl
    * @param {TypeformGetResponsesOpts} opts
    * @returns {Promise<TypeformResponse[]>}
    */
-  static async getResponses(apiUrl, {formId, token, query} = {}) {
+  static async getResponses(opts = {}) {
+    const { baseUrl, formId, token, query } = opts;
     const path = `/forms/${formId || ''}/responses`;
     /** @type {TypeformApiGetResponses} */
-    const result = await Typeform.request(apiUrl, {path, token, query});
+    const result = await Typeform.request({baseUrl, path, token, query});
     if (!result || !result.items) throw new Error('Response invalid');
     return result.items;
   }
@@ -66,27 +67,28 @@ module.exports.Typeform = class Typeform {
 
   /**
    * @typedef TypeformGetFileOpts
+   * @property {string} fileUrl
    * @property {string} token
    */
 
   /**
    *
-   * @param {string} fileUrl
    * @param {TypeformGetFileOpts} opts
    * @returns {Promise<Buffer>}
    */
-  static async getFileContents(fileUrl, {token} = {}) {
-    return await Typeform.request(fileUrl, {token, type: 'buffer'});
+  static async getFileContents(opts = {}) {
+    const { fileUrl, token } = opts;
+    return await Typeform.request({baseUrl: fileUrl, token, type: 'buffer'});
   }
 
   /**
    *
-   * @param {string} fileUrl
    * @param {TypeformGetFileOpts} opts
    * @returns {Promise<Stream>}
    */
-  static async getFileStream(fileUrl, {token} = {}) {
-    return await Typeform.request(fileUrl, {token, type: 'stream'});
+  static async getFileStream(opts = {}) {
+    const { fileUrl, token } = opts;
+    return await Typeform.request({baseUrl: fileUrl, token, type: 'stream'});
   }
 
   // ******************************************************
@@ -94,13 +96,8 @@ module.exports.Typeform = class Typeform {
   // ******************************************************
 
   /**
-   * @typedef TypeformQueryOpts
-   * @property page_size
-   * @property page_size
-   */
-
-  /**
    * @typedef TypeformRequestOpts
+   * @property {string} baseUrl
    * @property {string} [path]
    * @property {any} [body]
    * @property {string} [token]
@@ -111,15 +108,22 @@ module.exports.Typeform = class Typeform {
 
   /**
    *
-   * @param {string} apiUrl
    * @param {TypeformRequestOpts} opts
    * @returns {Promise<*>}
    */
-  static async request(apiUrl, opts = {}) {
+  static async request(opts = {}) {
 
-    const { token, method = 'GET', path, body, query, type } = opts;
+    const {
+      method = 'GET',
+      baseUrl,
+      token,
+      path,
+      body,
+      query,
+      type
+    } = opts;
 
-    let url = urlJoin(apiUrl, path);
+    let url = urlJoin(baseUrl, path) || '';
     if (query) url += buildQueryString(query);
 
     /** @type {RequestInit} */
