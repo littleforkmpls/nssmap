@@ -1,15 +1,25 @@
-# North Star Story Map - AWS Infrastructure
+# North Star Story Map - AWS Services
 
-This folder contains the `serverless` configuration for the following backend features.
+This folder contains the `serverless` configuration for the NSSMap AWS services.
 
-## 1. Typeform to WordPress Connector
+> * Serverless Docs: https://www.serverless.com/framework/docs
+> * Serverless Repo: https://github.com/serverless/serverless
+> * Serverless SDK: https://www.npmjs.com/package/serverless
 
-An AWS Lambda that is called by a Typeform webhook to copy entries into WordPress.
+## Typeform to WordPress Connector
 
-### Public Endpoint URLs
+The Typeform to WordPress Connector (`tf-wp-connector`) is an AWS Lambda function that is called by a 
+Typeform webhook whenever a form response is submitted. 
 
-* dev:  https://bvtw2catj1.execute-api.us-east-1.amazonaws.com/
-* prod: 
+The connector does a few things:
+
+1. Copy files from private Typeform URLs to a public S3 bucket
+2. Map Typeform answers to WordPress post fields (including tag id's)
+3. Create a post in WordPress
+
+#### Public Endpoint (only accepts POSTs)
+
+> https://bvtw2catj1.execute-api.us-east-1.amazonaws.com/
 
 ### Development
 
@@ -20,16 +30,23 @@ An AWS Lambda that is called by a Typeform webhook to copy entries into WordPres
 
 #### Setup Credentials
 
-AWS Creds
-1. Copy `.aws.default` into `.aws`
+You will need:
+* Keys for the AWS `nssmap-serverless-cli` user
+* Keys for the AWS `nssmap-tf-wp-connector` user
+* Username and application password for the WordPress site
+* Bearer token for the Typeform account
+
+AWS Serverless Creds
+1. Copy `.aws.default` to `.aws`
 2. Edit `.aws`, add API keys
 
 Application Creds
+
 1. Copy `.env.default` to `.env` (note: will throw direnv error)
 2. Edit `.env`, add API keys
 3. Run `direnv allow`
 
-#### Local Development
+#### Install Dependencies
 
 1. `n auto`
 2. `npm install`
@@ -37,19 +54,20 @@ Application Creds
 #### Tests
 
 Tests are written in Mocha/Chai and include integration tests for third-party
-services. As such, real API calls are made to those services. Tests that mutate
-any remote data are skipped by default.
+services. Services are not mocked and real API calls are made to those services. 
+Tests that mutate any remote data are skipped by default.
 
-1. `npm run test:once` OR `npm run test:watch`
+1. `npm run test` OR `npm run test:watch`
+
+
+#### Logs
+
+You can view remote logs from your terminal.
+
+1. `npm run connector-logs` (show logs from the last hour)
+2. `npm run connector-logs:tail` (stream logs as they come in)
 
 #### Deployment
 
-##### Setup AWS credentials
-
-1. You need access and secret keys for the `nssmap-serverless-cli` user
-2. `npx serverless config credentials -p aws -k <ACCESSKEY> -s <SECRETKEY>`
-
-##### Deploy to AWS
-
-1. `npm run deploy` (deploys entire CloudFormation stack, slow)
-2. or `npm run connector-deploy` (deploys just the one function, fast)
+1. Slow option: `npm run deploy` (deploys entire Cloud stack)
+2. Fast option: `npm run connector-deploy` (deploys just the one function)

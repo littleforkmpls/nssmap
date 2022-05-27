@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "connector-deploy": "./scripts/deploy-connector.sh",
-    "connector-logs": "./scripts/logs-connector.sh",
+    "connector-logs": "./scripts/logs-connector.sh --startTime 1h",
     "connector-logs:tail": "./scripts/logs-connector.sh --tail",
-    "test:once": "./scripts/test.sh",
+    "test": "./scripts/test.sh",
     "test:watch": "./scripts/test.sh --watch --watch-files ./lib"
   },
   "author": "Little Fork, LLC",
