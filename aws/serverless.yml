@@ -1,0 +1,30 @@
+service: nssmap-aws
+
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+  deploymentMethod: direct
+  environment:
+    AWS_TF_WP_ACCESS_KEY: ${env:AWS_TF_WP_ACCESS_KEY}
+    AWS_TF_WP_SECRET_KEY: ${env:AWS_TF_WP_SECRET_KEY}
+    AWS_PUBLIC_BUCKET: ${env:AWS_PUBLIC_BUCKET}
+    AWS_PUBLIC_BUCKET_REGION: ${env:AWS_PUBLIC_BUCKET_REGION}
+    TYPEFORM_FORM_ID: ${env:TYPEFORM_FORM_ID}
+    TYPEFORM_TOKEN: ${env:TYPEFORM_TOKEN}
+    TYPEFORM_URL: ${env:TYPEFORM_URL}
+    WORDPRESS_USERNAME: ${env:WORDPRESS_USERNAME}
+    WORDPRESS_PASSWORD: ${env:WORDPRESS_PASSWORD}
+    WORDPRESS_URL: ${env:WORDPRESS_URL}
+
+functions:
+  tf-wp-connector:
+    handler: index.tf-wp-connector
+    description: Webhook called by Typeform to copy entries into WordPress
+    events:
+      - httpApi:
+          method: POST
+          path: /
+    tags:
+      client: nssmap

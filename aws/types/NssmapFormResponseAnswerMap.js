@@ -1,0 +1,27 @@
+/**
+ * @typedef {{}} NssmapFormResponseAnswerMap
+ * @property {TypeformAnswer} 0pWPOTkeJ4ou  Field for: "author_13plus"
+ * @property {TypeformAnswer} cCtnKNF62tdD  Field for: "author_firstname"
+ * @property {TypeformAnswer} TkcWAwJKtA0t  Field for: "author_lastname"
+ * @property {TypeformAnswer} R5tkVz3rTzyV  Field for: "author_email"
+ * @property {TypeformAnswer} YyAwGwFFhcv9  Field for: "author_community"
+ * @property {TypeformAnswer} JsiJT53nZ7hA  Field for: "author_age"
+ * @property {TypeformAnswer} QXNwuNPOl9Au  Field for: "author_race_ethnicity"
+ * @property {TypeformAnswer} siMgqnMbaPOD  Field for: "author_gender"
+ * @property {TypeformAnswer} vzq9hhEpRtB5  Field for: "author_comments"
+ * @property {TypeformAnswer} 9k5fYUBAnLyl  Field for: "title"
+ * @property {TypeformAnswer} ONGanBAnwVcb  Field for: "story_content"
+ * @property {TypeformAnswer} kiRUTvgxRGEU  Field for: "tags"
+ * @property {TypeformAnswer} LwSMnEdjg3lo  Field for: "story_city"
+ * @property {TypeformAnswer} 25LtGwnYl9m9  Field for: "story_address"
+ * @property {TypeformAnswer} NHUKT3EzpMEQ  Field for: "story_zip"
+ * @property {TypeformAnswer} Xpby4jkXPJGo  Field for: "story_private_residence"
+ * @property {TypeformAnswer} veG6QCVqbLQm  Field for: "story_still_exist"
+ * @property {TypeformAnswer} PCT92ywkggUp  Field for: "images"
+ * @property {TypeformAnswer} J429I5JhdsSq  Field for: "image1"
+ * @property {TypeformAnswer} L3iAUQOe99tJ  Field for: "image2"
+ * @property {TypeformAnswer} jx7RU0owx19W  Field for: "image3"
+ * @property {TypeformAnswer} fdbfK7ViCL5Q  Field for: "image4"
+ * @property {TypeformAnswer} 3yp6J4Xx3ABe  Field for: "image5"
+ */
+

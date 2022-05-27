@@ -1,0 +1,21 @@
+
+module.exports.TypeformToWordPressMap = {
+  '9k5fYUBAnLyl': 'title',
+  'kiRUTvgxRGEU': 'tags',
+  'R5tkVz3rTzyV': 'acf.author_email',
+  'cCtnKNF62tdD': 'acf.author_firstname',
+  'TkcWAwJKtA0t': 'acf.author_lastname',
+  '25LtGwnYl9m9': 'acf.story_address',
+  'fDvLg5uTIcol': 'acf.story_audio_url',
+  'LwSMnEdjg3lo': 'acf.story_city',
+  'ONGanBAnwVcb': 'acf.story_content',
+  'J429I5JhdsSq': 'acf.story_image_url_1',
+  'L3iAUQOe99tJ': 'acf.story_image_url_2',
+  'jx7RU0owx19W': 'acf.story_image_url_3',
+  'fdbfK7ViCL5Q': 'acf.story_image_url_4',
+  '3yp6J4Xx3ABe': 'acf.story_image_url_5',
+  'Xpby4jkXPJGo': 'acf.story_private_residence',
+  'veG6QCVqbLQm': 'acf.story_still_exist',
+  'OFcWqPxkaqqr': 'acf.story_video_url',
+  'NHUKT3EzpMEQ': 'acf.story_zip',
+};
