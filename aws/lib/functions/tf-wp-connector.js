@@ -1,3 +1,6 @@
+const { AwsConfig, TfConfig, WpConfig } = require('../constants/Config');
+const { TypeformToWordPressMap } = require('../constants/TypeformToWordPressMap');
+
 const { Aws } = require('../services/Aws');
 const { Typeform } = require('../services/Typeform');
 const { WordPress } = require('../services/WordPress');
@@ -7,11 +10,6 @@ const { parseJson } = require('../utils/json');
 const { uid } = require('../utils/uid');
 const set = require('lodash.set');
 
-const {
-  TypeformToWordPressMap,
-  TypeformToWordPressACFMap
-} = require('../constants/TypeformToWordPressMap');
-
 /**
  *
  * @param {AwsLambdaHttpApiEvent} event
@@ -19,26 +17,6 @@ const {
  */
 module.exports.TfWpConnector = async (event) => {
   try {
-
-    const awsParams = {
-      bucket:  process.env.AWS_PUBLIC_BUCKET,
-      region:  process.env.AWS_PUBLIC_BUCKET_REGION,
-      profile: 'nssmap-tf-wp-connector'
-    };
-
-    const tfParams = {
-      token: process.env.TYPEFORM_TOKEN,
-    };
-
-    const wpParams = {
-      baseUrl: process.env.WORDPRESS_URL,
-      creds: {
-        username: process.env.WORDPRESS_USERNAME,
-        password: process.env.WORDPRESS_PASSWORD
-      }
-    };
-
-    // ******************************************************
 
     /** @type {TypeformWebhookPayload} */
     const payload = parseJson(event.body);
@@ -58,6 +36,9 @@ module.exports.TfWpConnector = async (event) => {
     const YYYYMM = (new Date()).toISOString().substring(0,7);
     const s3BasePath = `tf-responses/${formId}/${YYYYMM}/${respId}`;
 
+    const bucket = process.env.AWS_PUBLIC_BUCKET;
+    const region = process.env.AWS_PUBLIC_BUCKET_REGION;
+
     /** @type {Record<string,string>} */
     const publicUrls = {};
 
@@ -68,8 +49,8 @@ module.exports.TfWpConnector = async (event) => {
 
       const url = answer.file_url;
       const path = `${s3BasePath}/${getFilename(url)}`;
-      const stream = await Typeform.getFileStream({...tfParams, fileUrl: url});
-      const result = await Aws.s3Upload({...awsParams, path, body: stream});
+      const stream = await Typeform.getFileStream({...TfConfig, fileUrl: url});
+      const result = await Aws.s3Upload({...AwsConfig, region, bucket, path, body: stream});
       publicUrls[answer.field.id] = result.Location;
     }
 
@@ -124,7 +105,7 @@ module.exports.TfWpConnector = async (event) => {
     if (body.tags) {
 
       /** @type {WordPressTag[]} */
-      const wpTags = await WordPress.getTags({...wpParams});
+      const wpTags = await WordPress.getTags({...WpConfig});
 
       /** @type {{}|Record<string,number>} */
       const tagIdMap = wpTags.reduce((map, tag) => {
@@ -141,7 +122,7 @@ module.exports.TfWpConnector = async (event) => {
 
     // Finally create the post in WordPress
 
-    const result = await WordPress.createPost({...wpParams, body});
+    const result = await WordPress.createPost({...WpConfig, body});
 
     // ******************************************************
 

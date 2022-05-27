@@ -4,12 +4,22 @@ const { Readable, Stream } = require('stream');
 const { resolve } = require('path');
 
 const { Aws } = require('./Aws');
+const { AwsConfig } = require('../constants/Config');
 
 describe('services/Aws.js', () => {
 
-  const profile = 'nssmap-tf-wp-connector';
   const bucket = process.env.AWS_PUBLIC_BUCKET;
   const region = process.env.AWS_PUBLIC_BUCKET_REGION;
+
+  describe('s3client()', () => {
+
+    it('should return a client', async () => {
+      const client = Aws.s3Client({...AwsConfig, region});
+      await expect(client).to.be.an('object').with.property('config');
+    });
+  });
+
+  // ******************************************************
 
   describe('s3Upload()', () => {
 
@@ -19,7 +29,7 @@ describe('services/Aws.js', () => {
       // Write: will upload a test image to S3 bucket
       const body = readFileSync(testfile);
       const path = `test/test-buffer-${Date.now()}.png`;
-      const result = await Aws.s3Upload({bucket, path, body, profile, region});
+      const result = await Aws.s3Upload({...AwsConfig, bucket, path, body, region});
       await expect(result).to.have.property('Location');
       // console.log(result);
     });
@@ -28,11 +38,10 @@ describe('services/Aws.js', () => {
       // Write: will upload a test image to S3 bucket
       const body = createReadStream(testfile);
       const path = `test/test-stream-${Date.now()}.png`;
-      const result = await Aws.s3Upload({bucket, path, body, profile, region});
+      const result = await Aws.s3Upload({...AwsConfig, bucket, path, body, region});
       await expect(result).to.have.property('Location');
       // console.log(result);
     });
-
   });
 
 });
