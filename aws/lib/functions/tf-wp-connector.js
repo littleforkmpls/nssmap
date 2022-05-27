@@ -7,6 +7,7 @@ const { WordPress } = require('../services/WordPress');
 const { HttpBadRequest } = require('../utils/errors');
 const { getFilename } = require('../utils/url');
 const { parseJson } = require('../utils/json');
+const { uid } = require('../utils/uid');
 const set = require('lodash.set');
 
 /**
@@ -31,11 +32,23 @@ module.exports.TfWpConnector = async (event) => {
 
     // ******************************************************
 
-    // Copy files from Typeform to a public AWS S3 bucket and
-    // save the public URLs for later inserting into WordPress.
+    // Make sure this response is for the form we care about.
+    // If it's not, exit early with a 200 ok status.
 
     const formId = response.form_id;
     const respId = response.token;
+
+    console.info(`Form: ${formId}, Response: ${respId}`);
+
+    if (formId !== process.env.TYPEFORM_FORM_ID) {
+      return { statusCode: 200, body: '' };
+    }
+
+    // ******************************************************
+
+    // Copy files from Typeform to a public AWS S3 bucket and
+    // save the public URLs for later inserting into WordPress.
+
     const YYYYMM = (new Date()).toISOString().substring(0,7);
     const s3BasePath = `tf-responses/${formId}/${YYYYMM}/${respId}`;
 
@@ -51,7 +64,7 @@ module.exports.TfWpConnector = async (event) => {
       if (answer.type !== 'file_url') continue;
 
       const url = answer.file_url;
-      const path = `${s3BasePath}/${getFilename(url)}`;
+      const path = `${s3BasePath}/${uid(5)}-${getFilename(url)}`;
       const stream = await Typeform.getFileStream({...TfCfg, fileUrl: url});
       if (!stream) continue;
 
