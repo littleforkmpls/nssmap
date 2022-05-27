@@ -4,7 +4,7 @@ const { Readable, Stream } = require('stream');
 const { resolve } = require('path');
 
 const { Aws } = require('./Aws');
-const { AwsConfig } = require('../constants/Config');
+const { AwsCfg } = require('../constants/Config');
 
 describe('services/Aws.js', () => {
 
@@ -14,7 +14,7 @@ describe('services/Aws.js', () => {
   describe('s3client()', () => {
 
     it('should return a client', async () => {
-      const client = Aws.s3Client({...AwsConfig, region});
+      const client = Aws.s3Client({...AwsCfg, region});
       await expect(client).to.be.an('object').with.property('config');
     });
   });
@@ -29,7 +29,7 @@ describe('services/Aws.js', () => {
       // Write: will upload a test image to S3 bucket
       const body = readFileSync(testfile);
       const path = `test/test-buffer-${Date.now()}.png`;
-      const result = await Aws.s3Upload({...AwsConfig, bucket, path, body, region});
+      const result = await Aws.s3Upload({...AwsCfg, bucket, path, body, region});
       await expect(result).to.have.property('Location');
       // console.log(result);
     });
@@ -38,7 +38,7 @@ describe('services/Aws.js', () => {
       // Write: will upload a test image to S3 bucket
       const body = createReadStream(testfile);
       const path = `test/test-stream-${Date.now()}.png`;
-      const result = await Aws.s3Upload({...AwsConfig, bucket, path, body, region});
+      const result = await Aws.s3Upload({...AwsCfg, bucket, path, body, region});
       await expect(result).to.have.property('Location');
       // console.log(result);
     });

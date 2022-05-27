@@ -1,5 +1,4 @@
 const fetch = require('node-fetch');
-const { Readable } = require('stream');
 const { HttpError } = require('../utils/errors');
 const { buildQueryString, urlJoin } = require('../utils/url');
 
@@ -30,8 +29,6 @@ module.exports.Typeform = class Typeform {
       case 'number':
         return answer.number;
       case 'text':
-      case 'short_text':
-      case 'long_text':
         return answer.text;
       case 'url':
         return answer.url;
@@ -78,7 +75,12 @@ module.exports.Typeform = class Typeform {
    */
   static async getFileContents(opts = {}) {
     const { fileUrl, token } = opts;
-    return await Typeform.request({baseUrl: fileUrl, token, type: 'buffer'});
+    try {
+      return await Typeform.request({baseUrl: fileUrl, token, type: 'buffer'});
+    } catch(e) {
+      console.warn(`Cannot retrieve Typeform file contents: ${fileUrl}: ${e}`);
+      return null;
+    }
   }
 
   /**
@@ -88,7 +90,12 @@ module.exports.Typeform = class Typeform {
    */
   static async getFileStream(opts = {}) {
     const { fileUrl, token } = opts;
-    return await Typeform.request({baseUrl: fileUrl, token, type: 'stream'});
+    try {
+      return await Typeform.request({baseUrl: fileUrl, token, type: 'stream'});
+    } catch(e) {
+      console.warn(`Cannot retrieve Typeform file contents: ${fileUrl}: ${e}`);
+      return null;
+    }
   }
 
   // ******************************************************
@@ -142,9 +149,15 @@ module.exports.Typeform = class Typeform {
     const { status, statusText } = response;
 
     if (status >= 400) {
-      const json = await response.json();
-      const { code, description } = json;
-      throw new HttpError(description || statusText, status, code);
+      let code, msg;
+      try {
+        const json = await response.json();
+        msg = json.description || '';
+        code = json.code || '';
+      } catch(e) {
+        msg = statusText;
+      }
+      throw new HttpError(msg, status, code);
     }
 
     switch (type) {

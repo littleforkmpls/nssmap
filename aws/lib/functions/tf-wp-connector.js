@@ -1,4 +1,4 @@
-const { AwsConfig, TfConfig, WpConfig } = require('../constants/Config');
+const { AwsCfg, TfCfg, WpCfg } = require('../constants/Config');
 const { TypeformToWordPressMap } = require('../constants/TypeformToWordPressMap');
 
 const { Aws } = require('../services/Aws');
@@ -7,7 +7,6 @@ const { WordPress } = require('../services/WordPress');
 const { HttpBadRequest } = require('../utils/errors');
 const { getFilename } = require('../utils/url');
 const { parseJson } = require('../utils/json');
-const { uid } = require('../utils/uid');
 const set = require('lodash.set');
 
 /**
@@ -16,15 +15,19 @@ const set = require('lodash.set');
  * @returns {Promise<AwsLambdaHttpApiReturns>}
  */
 module.exports.TfWpConnector = async (event) => {
+
+  const { sourceIp, userAgent } = event?.requestContext?.http || {};
+  console.info(`Request from: ${sourceIp} (${userAgent})`);
+
   try {
 
     /** @type {TypeformWebhookPayload} */
     const payload = parseJson(event.body);
-    if (!payload) throw new HttpBadRequest('Payload is not JSON string');
+    if (!payload) throw new HttpBadRequest('Request body is not JSON');
 
     const response = payload?.form_response;
-    if (!response) throw new HttpBadRequest('Body is missing form response');
-    if (!response.answers) throw new HttpBadRequest('Body is missing response answers');
+    if (!response) throw new HttpBadRequest('Payload is missing form response');
+    if (!response.answers) throw new HttpBadRequest('Payload is missing response answers');
 
     // ******************************************************
 
@@ -49,27 +52,16 @@ module.exports.TfWpConnector = async (event) => {
 
       const url = answer.file_url;
       const path = `${s3BasePath}/${getFilename(url)}`;
-      const stream = await Typeform.getFileStream({...TfConfig, fileUrl: url});
-      const result = await Aws.s3Upload({...AwsConfig, region, bucket, path, body: stream});
+      const stream = await Typeform.getFileStream({...TfCfg, fileUrl: url});
+      if (!stream) continue;
+
+      const result = await Aws.s3Upload({...AwsCfg, region, bucket, path, body: stream});
       publicUrls[answer.field.id] = result.Location;
     }
 
     // ******************************************************
 
-    // Convert array of answers into a lookup map keyed by the
-    // field ID so that it is easier to map the values to the
-    // WordPress post body.
-
-    /** @type {Record<string,TypeformAnswer>} */
-    const answerMap = response.answers.reduce((map, answer) => {
-      if (!answer?.field?.id) return map;
-      map[answer.field.id] = answer;
-      return map;
-    }, {});
-
-    // ******************************************************
-
-    // Map the Typeform answers to WordPress post fields.
+    // Map the Typeform answers to WordPress fields.
 
     /** @type {NssmapFormResponsePost} */
     const body = {
@@ -105,7 +97,7 @@ module.exports.TfWpConnector = async (event) => {
     if (body.tags) {
 
       /** @type {WordPressTag[]} */
-      const wpTags = await WordPress.getTags({...WpConfig});
+      const wpTags = await WordPress.getTags({...WpCfg});
 
       /** @type {{}|Record<string,number>} */
       const tagIdMap = wpTags.reduce((map, tag) => {
@@ -122,11 +114,13 @@ module.exports.TfWpConnector = async (event) => {
 
     // Finally create the post in WordPress
 
-    const result = await WordPress.createPost({...WpConfig, body});
+    const result = await WordPress.createPost({...WpCfg, body});
 
     // ******************************************************
 
     // All done, respond with something positive
+
+    console.info(`Created post: ${result.id}`);
 
     return {
       statusCode: 200,
@@ -134,7 +128,7 @@ module.exports.TfWpConnector = async (event) => {
     };
 
   } catch(e) {
-    if (!e.status) console.error(e);
+    console.error((e.status) ? e.toString() : e);
     return {
       statusCode: e.status || 500,
       body: JSON.stringify({error: e})

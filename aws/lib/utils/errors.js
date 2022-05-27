@@ -2,13 +2,18 @@
 class HttpError extends Error {
   constructor (msg, status, code, data) {
     super(msg);
-    this.code   = code;
+    this.code = code;
     this.status = status;
     this.data = data;
   }
   toJSON() {
-    const  { message, code, status, data } = this;
+    const message = this.toString();
+    const  { code, status, data } = this;
     return { message, code, status, data };
+  }
+  toString() {
+    const code = (this.code) ? `(${this.code})` : '';
+    return `HttpError ${this.status}: ${this.message} ${code}`;
   }
 }
 
