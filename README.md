@@ -38,44 +38,4 @@ Note: Run `docker compose down` when local development is complete.
 
 # Story Details
 
-Stories are collected via TypeForm and synced to WordPress using the a custom WordPress plugin called Story Sync. Fields are mapped below and use the following syntax - WordPress / ACF Field :: TypeForm ID
-
-Access to the TypeForm API uses a personal token which can be modified via the WordPress admin panel plugin settings.
-
-## Field Mapping
-
-
-```
-wordpress :: typeform
-
-response_id - readonly  :: id
-respone_time - readonly :: submitted_at
-
-author_13plus           :: field_0pWPOTkeJ4ou
-author_firstname        :: field_cCtnKNF62tdD
-author_lastname         :: field_TkcWAwJKtA0t
-author_email            :: field_R5tkVz3rTzyV
-author_community        :: field_YyAwGwFFhcv9
-author_age              :: field_JsiJT53nZ7hA
-author_race_ethnicity   :: field_QXNwuNPOl9Au
-author_gender           :: field_siMgqnMbaPOD
-author_comments         :: field_vzq9hhEpRtB5
-
-title                   :: field_9k5fYUBAnLyl
-story_content           :: field_ONGanBAnwVcb
-tags                    :: field_kiRUTvgxRGEU
-story_city              :: field_LwSMnEdjg3lo
-story_state             :: Hardcoded as "MN"
-story_address           :: field_25LtGwnYl9m9
-story_zip               :: field_NHUKT3EzpMEQ
-story_private_residence :: field_Xpby4jkXPJGo
-story_still_exist       :: field_veG6QCVqbLQm
-Images?                 :: field_PCT92ywkggUp
-image1                  :: field_J429I5JhdsSq _file
-image2                  :: field_L3iAUQOe99tJ _file
-image3                  :: field_jx7RU0owx19W _file
-image4                  :: field_fdbfK7ViCL5Q _file
-image5                  :: field_3yp6J4Xx3ABe _file
-story_video_url         :: field_OFcWqPxkaqqr
-story_audio_url         :: field_fDvLg5uTIcol
-```
+Stories are collected via TypeForm and synced to WordPress using a custom JavaScript application  (in the `aws` folder.
