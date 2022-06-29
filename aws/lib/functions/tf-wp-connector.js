@@ -144,7 +144,7 @@ module.exports.TfWpConnector = async (event) => {
 
     let str = '';
     if (e.status) str = e.toString();
-    if (e?.data)  str += ` ${JSON.stringify(e.data)}`;
+    if (e.data)   str += ` ${JSON.stringify(e.data)}`;
     console.error(str || e);
 
     return {
