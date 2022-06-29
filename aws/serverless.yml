@@ -20,6 +20,7 @@ provider:
 
 functions:
   tf-wp-connector:
+    timeout: 30
     handler: index.tf-wp-connector
     description: Webhook called by Typeform to copy entries into WordPress
     events:
