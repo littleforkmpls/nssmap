@@ -141,7 +141,12 @@ module.exports.TfWpConnector = async (event) => {
     };
 
   } catch(e) {
-    console.error((e.status) ? e.toString() : e);
+
+    let str = '';
+    if (e.status) str = e.toString();
+    if (e.data)   str += ` ${JSON.stringify(e.data)}`;
+    console.error(str || e);
+
     return {
       statusCode: e.status || 500,
       body: JSON.stringify({error: e})
